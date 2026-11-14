@@ -39,7 +39,8 @@ fieldshift/
 │   ├── indicators.py          # Heat stress (≥35°C), frost dates, rainfall CV, bare field
 │   ├── scoring.py             # Multi-criteria scoring formula: S_j = Σ (w_i * r_ij * a_ij)
 │   ├── scenarios.py           # Climate perturbation engine (ΔRainfall, ΔTemperature)
-│   └── evidence.py            # Structured JSON evidence card synthesis
+│   ├── evidence.py            # Structured JSON evidence card synthesis
+│   └── gemini_advisor.py      # Gemini AI spatial agronomist (offline dossiers & live queries)
 └── ratings/                   # Peer-reviewed agronomic starter matrices
     ├── strategies.json        # 1–5 criteria ratings with K-State Extension citations
     └── crops.json             # Crop water demands, rooting depths, and phenology

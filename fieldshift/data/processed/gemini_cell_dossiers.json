@@ -1,0 +1,164 @@
+{
+  "THO-NW": {
+    "cell_id": "THO-NW",
+    "county": "Thomas",
+    "label": "Northwest Upland",
+    "headline": "Gemini Field Agronomy Dossier: THO-NW (Northwest Upland)",
+    "executive_summary": "Parcel THO-NW (Northwest Upland) sits on deep Keith silt loam tableland at 39.46\u00b0 N, -101.12\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.59 during wheat heading, followed by a critical 4-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Severe Wind Detachment Zone'. Replacing open summer fallow with Wheat w/ Legume Cover maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat w/ Legume Cover**\n\u2022 Heat & Moisture Buffer: NASA POWER records 33.0 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.373.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-N": {
+    "cell_id": "THO-N",
+    "county": "Thomas",
+    "label": "North Tableland",
+    "headline": "Gemini Field Agronomy Dossier: THO-N (North Tableland)",
+    "executive_summary": "Parcel THO-N (North Tableland) sits on deep Keith silt loam tableland at 39.46\u00b0 N, -101.05\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.58 during wheat heading, followed by a critical 4-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Severe Wind Detachment Zone'. Replacing open summer fallow with Wheat w/ Legume Cover maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat w/ Legume Cover**\n\u2022 Heat & Moisture Buffer: NASA POWER records 33.3 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.38.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-NE": {
+    "cell_id": "THO-NE",
+    "county": "Thomas",
+    "label": "Northeast Transition",
+    "headline": "Gemini Field Agronomy Dossier: THO-NE (Northeast Transition)",
+    "executive_summary": "Parcel THO-NE (Northeast Transition) sits on deep Keith silt loam tableland at 39.46\u00b0 N, -100.98\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.56 during wheat heading, followed by a critical 4-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Severe Wind Detachment Zone'. Replacing open summer fallow with Wheat w/ Legume Cover maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat w/ Legume Cover**\n\u2022 Heat & Moisture Buffer: NASA POWER records 33.7 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.387.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-W": {
+    "cell_id": "THO-W",
+    "county": "Thomas",
+    "label": "West Flats",
+    "headline": "Gemini Field Agronomy Dossier: THO-W (West Flats)",
+    "executive_summary": "Parcel THO-W (West Flats) sits on deep Keith silt loam tableland at 39.39\u00b0 N, -101.12\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.56 during wheat heading, followed by a critical 4-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Prolonged Fallow Moisture Deficit'. Replacing open summer fallow with Wheat\u2013Sorghum\u2013Fallow maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat\u2013Sorghum\u2013Fallow**\n\u2022 Heat & Moisture Buffer: NASA POWER records 33.5 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.373.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-C": {
+    "cell_id": "THO-C",
+    "county": "Thomas",
+    "label": "Colby Anchor Hub",
+    "headline": "Gemini Field Agronomy Dossier: THO-C (Colby Anchor Hub)",
+    "executive_summary": "Parcel THO-C (Colby Anchor Hub) sits on deep Keith silt loam tableland at 39.39\u00b0 N, -101.05\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.55 during wheat heading, followed by a critical 4-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Prolonged Fallow Moisture Deficit'. Replacing open summer fallow with Wheat\u2013Sorghum\u2013Fallow maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat\u2013Sorghum\u2013Fallow**\n\u2022 Heat & Moisture Buffer: NASA POWER records 33.9 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.38.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-E": {
+    "cell_id": "THO-E",
+    "county": "Thomas",
+    "label": "East Plains",
+    "headline": "Gemini Field Agronomy Dossier: THO-E (East Plains)",
+    "executive_summary": "Parcel THO-E (East Plains) sits on deep Keith silt loam tableland at 39.39\u00b0 N, -100.98\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.54 during wheat heading, followed by a critical 4-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Prolonged Fallow Moisture Deficit'. Replacing open summer fallow with Wheat\u2013Sorghum\u2013Fallow maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat\u2013Sorghum\u2013Fallow**\n\u2022 Heat & Moisture Buffer: NASA POWER records 34.2 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.387.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-SW": {
+    "cell_id": "THO-SW",
+    "county": "Thomas",
+    "label": "Southwest Terrace",
+    "headline": "Gemini Field Agronomy Dossier: THO-SW (Southwest Terrace)",
+    "executive_summary": "Parcel THO-SW (Southwest Terrace) sits on deep Keith silt loam tableland at 39.32\u00b0 N, -101.12\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.54 during wheat heading, followed by a critical 5-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Prolonged Fallow Moisture Deficit'. Replacing open summer fallow with Wheat\u2013Sorghum\u2013Fallow maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat\u2013Sorghum\u2013Fallow**\n\u2022 Heat & Moisture Buffer: NASA POWER records 34.1 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.373.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-S": {
+    "cell_id": "THO-S",
+    "county": "Thomas",
+    "label": "South Draw",
+    "headline": "Gemini Field Agronomy Dossier: THO-S (South Draw)",
+    "executive_summary": "Parcel THO-S (South Draw) sits on deep Keith silt loam tableland at 39.32\u00b0 N, -101.05\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.52 during wheat heading, followed by a critical 5-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Prolonged Fallow Moisture Deficit'. Replacing open summer fallow with Wheat\u2013Sorghum\u2013Fallow maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat\u2013Sorghum\u2013Fallow**\n\u2022 Heat & Moisture Buffer: NASA POWER records 34.5 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.38.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "THO-SE": {
+    "cell_id": "THO-SE",
+    "county": "Thomas",
+    "label": "Southeast Plain",
+    "headline": "Gemini Field Agronomy Dossier: THO-SE (Southeast Plain)",
+    "executive_summary": "Parcel THO-SE (Southeast Plain) sits on deep Keith silt loam tableland at 39.32\u00b0 N, -100.98\u00b0 W. The 10-year MODIS record detects a peak NDVI of 0.51 during wheat heading, followed by a critical 5-month bare window (July\u2013October). Under 30\u201350 mph spring winds, pulverized fallow topsoil in this parcel is classified as a 'Prolonged Fallow Moisture Deficit'. Replacing open summer fallow with Wheat\u2013Sorghum\u2013Fallow maintains soil armor and eliminates midsummer evaporative burn-off.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Wheat\u2013Sorghum\u2013Fallow**\n\u2022 Heat & Moisture Buffer: NASA POWER records 34.8 days/yr \u2265 35\u00b0C; root-zone wetness index is 0.387.\n\u2022 Actionable Advice: Check subsoil moisture to 4 feet in late May. If profile is moist, plant sorghum or cover mix to shield soil before July heat.",
+    "is_live_gemini": false
+  },
+  "FIN-NW": {
+    "cell_id": "FIN-NW",
+    "county": "Finney",
+    "label": "Northwest Upland",
+    "headline": "Gemini Field Agronomy Dossier: FIN-NW (Northwest Upland)",
+    "executive_summary": "Parcel FIN-NW (Northwest Upland) at 38.04\u00b0 N, -100.94\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 43.0 annual heat days (\u226535\u00b0C). Classified as a 'High Atmospheric Heat Stress', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Soybean**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Soybean cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-N": {
+    "cell_id": "FIN-N",
+    "county": "Finney",
+    "label": "North Tableland",
+    "headline": "Gemini Field Agronomy Dossier: FIN-N (North Tableland)",
+    "executive_summary": "Parcel FIN-N (North Tableland) at 38.04\u00b0 N, -100.87\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 42.7 annual heat days (\u226535\u00b0C). Classified as a 'High Atmospheric Heat Stress', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Soybean**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Soybean cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-NE": {
+    "cell_id": "FIN-NE",
+    "county": "Finney",
+    "label": "Northeast Transition",
+    "headline": "Gemini Field Agronomy Dossier: FIN-NE (Northeast Transition)",
+    "executive_summary": "Parcel FIN-NE (Northeast Transition) at 38.04\u00b0 N, -100.8\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 42.4 annual heat days (\u226535\u00b0C). Classified as a 'High Atmospheric Heat Stress', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Soybean**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Soybean cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-W": {
+    "cell_id": "FIN-W",
+    "county": "Finney",
+    "label": "West Flats",
+    "headline": "Gemini Field Agronomy Dossier: FIN-W (West Flats)",
+    "executive_summary": "Parcel FIN-W (West Flats) at 37.97\u00b0 N, -100.94\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 42.6 annual heat days (\u226535\u00b0C). Classified as a 'High Atmospheric Heat Stress', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Soybean**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Soybean cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-C": {
+    "cell_id": "FIN-C",
+    "county": "Finney",
+    "label": "Garden City Anchor Hub",
+    "headline": "Gemini Field Agronomy Dossier: FIN-C (Garden City Anchor Hub)",
+    "executive_summary": "Parcel FIN-C (Garden City Anchor Hub) at 37.97\u00b0 N, -100.87\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 42.3 annual heat days (\u226535\u00b0C). Classified as a 'High Atmospheric Heat Stress', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Soybean**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Soybean cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-E": {
+    "cell_id": "FIN-E",
+    "county": "Finney",
+    "label": "East Plains",
+    "headline": "Gemini Field Agronomy Dossier: FIN-E (East Plains)",
+    "executive_summary": "Parcel FIN-E (East Plains) at 37.97\u00b0 N, -100.8\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 42.0 annual heat days (\u226535\u00b0C). Classified as a 'High Atmospheric Heat Stress', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Soybean**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Soybean cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-SW": {
+    "cell_id": "FIN-SW",
+    "county": "Finney",
+    "label": "Southwest Terrace",
+    "headline": "Gemini Field Agronomy Dossier: FIN-SW (Southwest Terrace)",
+    "executive_summary": "Parcel FIN-SW (Southwest Terrace) at 37.9\u00b0 N, -100.94\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 42.2 annual heat days (\u226535\u00b0C). Classified as a 'Critical Ogallala Drawdown Zone', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Wheat\u2013Sorghum**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Wheat\u2013Sorghum cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-S": {
+    "cell_id": "FIN-S",
+    "county": "Finney",
+    "label": "South Draw",
+    "headline": "Gemini Field Agronomy Dossier: FIN-S (South Draw)",
+    "executive_summary": "Parcel FIN-S (South Draw) at 37.9\u00b0 N, -100.87\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 41.9 annual heat days (\u226535\u00b0C). Classified as a 'Critical Ogallala Drawdown Zone', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Wheat\u2013Sorghum**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Wheat\u2013Sorghum cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  },
+  "FIN-SE": {
+    "cell_id": "FIN-SE",
+    "county": "Finney",
+    "label": "Southeast Plain",
+    "headline": "Gemini Field Agronomy Dossier: FIN-SE (Southeast Plain)",
+    "executive_summary": "Parcel FIN-SE (Southeast Plain) at 37.9\u00b0 N, -100.8\u00b0 W is within the intensive center-pivot irrigation belt of Finney County. NASA satellite thermal observations reveal that adjacent bare ground heats to 125\u00b0F, driving higher evaporative demand across center pivots during 41.6 annual heat days (\u226535\u00b0C). Classified as a 'Critical Ogallala Drawdown Zone', continued continuous corn will accelerate local Ogallala drawdown.",
+    "detailed_agronomy": "\u2022 Recommended Strategy: **Corn\u2013Wheat\u2013Sorghum**\n\u2022 Water Conservation Impact: Adopting Corn\u2013Wheat\u2013Sorghum cuts seasonal pumping by ~6.8 inches/acre, saving over 23 million gallons of groundwater per pivot.\n\u2022 Actionable Advice: Split circle nozzles between corn and grain sorghum to stagger peak pumping windows and comply with GMD 3 LEMA allocations.",
+    "is_live_gemini": false
+  }
+}

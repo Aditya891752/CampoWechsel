@@ -59,10 +59,11 @@ Where:
 2. **Interactive Bare-Field Threshold**: Farmers can slide threshold ($0.10 - 0.35$) and inspect shaded bare-field windows on 10-year NDVI climatology curves.
 3. **Structured Evidence Cards**: Side-by-side strategy comparison cards with satellite evidence, benefits, gaps, risks, and confidence tags.
 4. **Side-by-Side Comparison Matrix**: Direct head-to-head evaluation between Current Practice and any selected alternative.
-5. **Interactive Folium Geospatial Map**: 3×3 grid tiles around county anchor hubs with color-coded vulnerability classifications (wind detachment vs. Ogallala drawdown).
-6. **Live Climate Perturbation Sliders**: Farmers test *"What if next year is hotter and drier?"* ($\Delta \text{Rainfall}: -30\% \text{ to } +20\%$, $\Delta \text{Temperature}: 0 \text{ to } +3^\circ\text{C}$), observing live re-ranking.
-7. **One-Page Printable Strategy Report**: Formats an executive summary into clean HTML that prints directly to a 1-page PDF (`Ctrl+P`) for agronomist consultations.
-8. **Bilingual Localization**: Instant English / Hindi interface switcher (`en` / `hi`).
+5. **Interactive Geospatial Map with Google Satellite Hybrid Imagery**: Folium Leaflet map equipped with Google Satellite Hybrid imagery and 3×3 grid tiles around county anchor hubs with color-coded vulnerability classifications (wind detachment vs. Ogallala drawdown).
+6. **Gemini AI Spatial Field Agronomist**: Integrated `google-genai` SDK (`gemini-2.5-flash`) providing pre-compiled offline field agronomic dossiers and interactive live queries grounded in NASA Earth Observation telemetry, USDA SSURGO soils, and K-State Extension benchmarks.
+7. **Live Climate Perturbation Sliders**: Farmers test *"What if next year is hotter and drier?"* ($\Delta \text{Rainfall}: -30\% \text{ to } +20\%$, $\Delta \text{Temperature}: 0 \text{ to } +3^\circ\text{C}$), observing live re-ranking.
+8. **One-Page Printable Strategy Report**: Formats an executive summary into clean HTML that prints directly to a 1-page PDF (`Ctrl+P`) for agronomist consultations.
+9. **Farmer-First High-Contrast Interface**: Standardized English UI designed for maximum readability across field laptops and mobile devices.
 
 ---
 

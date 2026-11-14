@@ -49,3 +49,37 @@ def test_i18n_localization():
     assert get_text("title", "en") == "Field Shift: Western Kansas"
     assert "फ़ील्ड शिफ्ट" in get_text("title", "hi")
     assert get_text("save_water", "hi") != get_text("save_water", "en")
+
+
+def test_gemini_dossiers_loaded():
+    from fieldshift.engine.gemini_advisor import get_precompiled_cell_dossier
+    dossier_tho = get_precompiled_cell_dossier("Thomas", "THO-C")
+    assert dossier_tho["cell_id"] == "THO-C"
+    assert "Keith silt loam" in dossier_tho["executive_summary"]
+    assert "Wheat–Sorghum–Fallow" in dossier_tho["detailed_agronomy"]
+
+    dossier_fin = get_precompiled_cell_dossier("Finney", "FIN-C")
+    assert dossier_fin["cell_id"] == "FIN-C"
+    assert "center-pivot" in dossier_fin["executive_summary"]
+    assert "gallons" in dossier_fin["detailed_agronomy"]
+
+
+def test_gemini_live_query_offline_fallback():
+    from fieldshift.engine.gemini_advisor import query_live_gemini
+    sample_telemetry = {
+        "cell_id": "THO-C",
+        "county": "Thomas",
+        "label": "Colby Hub",
+        "lat": 39.39,
+        "lon": -101.05,
+        "peak_ndvi": 0.55,
+        "annual_heat_days": 33.9,
+        "root_zone_moisture": 0.38,
+        "bare_months_count": 4,
+        "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+        "recommended_strategy": "Wheat–Sorghum–Fallow",
+    }
+    # When api_key is None, it should return offline notice safely
+    res = query_live_gemini(sample_telemetry, "What cover crop works best?", api_key=None)
+    assert res["is_live"] is False
+    assert "GEMINI_API_KEY" in res["response"]

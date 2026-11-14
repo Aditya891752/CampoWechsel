@@ -27,6 +27,7 @@ from fieldshift.engine.scoring import (
 from fieldshift.engine.scenarios import perturb_indicators
 from fieldshift.engine.evidence import generate_evidence_cards
 from fieldshift.engine.report_generator import generate_html_report
+from fieldshift.engine.gemini_advisor import get_precompiled_cell_dossier, query_live_gemini
 
 # 1. Page Configuration & Farmer-First High-Contrast Styling
 st.set_page_config(
@@ -568,17 +569,40 @@ timeline_data = {
 st.dataframe(pd.DataFrame(timeline_data[county_choice]), hide_index=True, use_container_width=True)
 
 # SECTION 6: Interactive Spatial Map & Vulnerability Grid
-st.markdown("## 6. Interactive Geospatial Map: Spatial Variation & Vulnerability Grid")
+st.markdown("## 6. Interactive Geospatial Map: Spatial Variation and Vulnerability Grid")
 
 c_spatial = spatial_data[county_choice]
 cells = c_spatial["cells"]
 
+# Folium Map with Google Satellite Hybrid layer & CartoDB fallback
 m = folium.Map(
     location=[c_spatial["anchor_lat"], c_spatial["anchor_lon"]],
     zoom_start=11,
-    tiles="CartoDB positron",
+    tiles=None,
     control_scale=True,
 )
+
+folium.TileLayer(
+    tiles="https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
+    attr="Google",
+    name="Google Satellite (Hybrid)",
+    overlay=False,
+    control=True,
+).add_to(m)
+
+folium.TileLayer(
+    tiles="CartoDB positron",
+    name="CartoDB Light",
+    overlay=False,
+    control=True,
+).add_to(m)
+
+folium.TileLayer(
+    tiles="OpenStreetMap",
+    name="OpenStreetMap",
+    overlay=False,
+    control=True,
+).add_to(m)
 
 folium.Marker(
     location=[c_spatial["anchor_lat"], c_spatial["anchor_lon"]],
@@ -616,11 +640,73 @@ for cell in cells:
         fill_opacity=0.7,
         weight=2,
         popup=folium.Popup(popup_html, max_width=250),
-        tooltip=f"{cell['cell_id']} ({cell['label']}) — Click for details",
+        tooltip=f"{cell['cell_id']} ({cell['label']}) - Click for details",
     ).add_to(m)
 
-st_folium(m, height=380, use_container_width=True)
-st.caption("Interactive Leaflet map showing 3×3 grid tiles around anchor point. High-vulnerability zones (wind detachment or severe aquifer decline) highlighted in red.")
+folium.LayerControl(position="topright").add_to(m)
+
+st_folium(m, height=420, use_container_width=True)
+st.caption("Interactive map layered with high-resolution Google Satellite Hybrid imagery and NASA 3x3 geospatial vulnerability tiles. High-vulnerability zones (wind detachment or severe aquifer decline) are outlined in red.")
+
+# Gemini AI Spatial Field Agronomist Integration
+st.markdown("### Gemini AI Spatial Field Agronomist")
+st.markdown(
+    "Analyze specific field parcels using Google Gemini AI grounded in NASA Earth Observation telemetry "
+    "(POWER surface meteorology, MODIS NDVI, SMAP soil moisture), USDA SSURGO soil characteristics, "
+    "and K-State Extension agronomic benchmarks."
+)
+
+cell_options = [c["cell_id"] for c in cells]
+selected_cell_id = st.selectbox(
+    "Select Field Parcel for AI Agronomic Analysis:",
+    options=cell_options,
+    format_func=lambda cid: f"{cid} - {next(c['label'] for c in cells if c['cell_id'] == cid)}",
+    key="spatial_cell_selector",
+)
+
+selected_cell = next(c for c in cells if c["cell_id"] == selected_cell_id)
+dossier = get_precompiled_cell_dossier(county_choice, selected_cell_id)
+
+ag_col1, ag_col2 = st.columns([3, 2])
+with ag_col1:
+    st.markdown(f"#### {dossier.get('headline', f'Field Parcel Dossier: {selected_cell_id}')}")
+    st.markdown(dossier.get("executive_summary", ""))
+    st.markdown("**Agronomic Action Plan:**")
+    st.markdown(dossier.get("detailed_agronomy", ""))
+
+with ag_col2:
+    st.markdown("#### Parcel Satellite Telemetry")
+    st.markdown(f"- **Latitude / Longitude:** `{selected_cell['lat']}° N, {selected_cell['lon']}° W`")
+    st.markdown(f"- **Peak Vegetative NDVI:** `{selected_cell['peak_ndvi']:.2f}`")
+    st.markdown(f"- **Annual Extreme Heat Days (≥35°C):** `{selected_cell['annual_heat_days']} days/yr`")
+    st.markdown(f"- **Root-Zone Moisture Index:** `{selected_cell['root_zone_moisture']}`")
+    st.markdown(f"- **Bare-Field Window (NDVI < 0.20):** `{selected_cell['bare_months_count']} months`")
+    st.markdown(f"- **Vulnerability:** `{selected_cell['vulnerability_classification']}`")
+    st.markdown(f"- **K-State Optimal Strategy:** `{selected_cell['recommended_strategy']}`")
+
+st.markdown("#### Ask Gemini AI About This Parcel")
+user_query = st.text_input(
+    "Ask a field-specific question (e.g., 'What cover crop mix survives high July heat?' or 'Can I graze cattle on this residue?'):",
+    key="gemini_user_query",
+    placeholder="Enter your field management question here...",
+)
+
+if st.button("Consult Gemini Agronomist", type="primary", key="btn_query_gemini"):
+    if not user_query.strip():
+        st.warning("Please enter a question about this parcel.")
+    else:
+        with st.spinner("Consulting Gemini AI Agronomist with parcel telemetry..."):
+            cell_telemetry = dict(selected_cell)
+            cell_telemetry["county"] = county_choice
+            res = query_live_gemini(cell_telemetry, user_query.strip())
+            if res["is_live"]:
+                st.success("Live Gemini 2.5 Flash Response (Grounded in NASA & K-State Telemetry):")
+                st.markdown(res["response"])
+            else:
+                st.info(f"Offline Mode: {res['response']}")
+                st.markdown("**Grounded Agronomic Recommendation for this Parcel:**")
+                st.markdown(dossier.get("executive_summary", ""))
+                st.markdown(dossier.get("detailed_agronomy", ""))
 
 # SECTION 7: Groundwater Trends & NASA GRACE-FO
 st.markdown("## 7. Groundwater Trends & NASA GRACE-FO Hydrological Context")
