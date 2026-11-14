@@ -1,5 +1,5 @@
 """
-Field Shift: Western Kansas — Complete Decision-Support Web App (Phase 0, 1 & 2)
+Field Shift: Western Kansas — Complete Decision-Support Web App
 NASA International Space Apps Challenge
 Farmer-friendly crop-rotation comparison powered by NASA Earth observations.
 """
@@ -27,7 +27,6 @@ from fieldshift.engine.scoring import (
 from fieldshift.engine.scenarios import perturb_indicators
 from fieldshift.engine.evidence import generate_evidence_cards
 from fieldshift.engine.report_generator import generate_html_report
-from fieldshift.i18n import get_text
 
 # 1. Page Configuration & Farmer-First High-Contrast Styling
 st.set_page_config(
@@ -229,21 +228,11 @@ def load_all_datasets():
     smap_df,
 ) = load_all_datasets()
 
-# 2. Sidebar Setup & Language Toggle (P2)
-st.sidebar.markdown("### Language / भाषा")
-lang = st.sidebar.radio(
-    "Interface Language",
-    options=["en", "hi"],
-    format_func=lambda l: "English" if l == "en" else "हिंदी (Hindi)",
-    index=0,
-    horizontal=True,
-    label_visibility="collapsed",
-)
-
-st.sidebar.markdown(f"### {get_text('farm_setup', lang)}")
+# 2. Sidebar Setup (English Only)
+st.sidebar.markdown("### Farm Location & Persona")
 
 county_choice = st.sidebar.selectbox(
-    get_text("select_county", lang),
+    "Select County & Agricultural System",
     options=list(COUNTIES.keys()),
     format_func=lambda c: f"{COUNTIES[c]['name']} ({COUNTIES[c]['system']})",
     index=0,
@@ -257,44 +246,46 @@ st.sidebar.markdown(f"**Primary Tension:** {county_info['main_tension']}")
 st.sidebar.caption(persona_info["description"])
 
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"### {get_text('priority_sliders', lang)}")
-st.sidebar.caption(get_text("priority_caption", lang))
+st.sidebar.markdown("### Farmer Priority Sliders")
+st.sidebar.caption("Adjust what matters most on your operation (0 to 10 scale):")
 
-save_water = st.sidebar.slider(get_text("save_water", lang), min_value=0, max_value=10, value=7)
-protect_soil = st.sidebar.slider(get_text("protect_soil", lang), min_value=0, max_value=10, value=8)
-earn_income = st.sidebar.slider(get_text("earn_income", lang), min_value=0, max_value=10, value=6)
+save_water = st.sidebar.slider("1. Save Water (Efficiency / Aquifer Protection)", min_value=0, max_value=10, value=7)
+protect_soil = st.sidebar.slider("2. Protect Soil (Residue / Wind Erosion Defense)", min_value=0, max_value=10, value=8)
+earn_income = st.sidebar.slider("3. Earn Income (Margin Reliability / Input Cost)", min_value=0, max_value=10, value=6)
 
 computed_weights = map_3_slider_to_criteria_weights(save_water, protect_soil, earn_income)
 
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"### {get_text('climate_scenarios', lang)}")
-st.sidebar.caption(get_text("climate_caption", lang))
+st.sidebar.markdown("### Climate Scenarios (P1)")
+st.sidebar.caption("Test how rotation rankings shift under hotter or drier conditions:")
 
-rain_delta = st.sidebar.slider(get_text("rain_change", lang), min_value=-30, max_value=20, value=0, step=5, format="%d%%")
-temp_delta = st.sidebar.slider(get_text("temp_increase", lang), min_value=0.0, max_value=3.0, value=0.0, step=0.5, format="+%.1f°C")
+rain_delta = st.sidebar.slider("Rainfall Change (%)", min_value=-30, max_value=20, value=0, step=5, format="%d%%")
+temp_delta = st.sidebar.slider("Temperature Increase (°C)", min_value=0.0, max_value=3.0, value=0.0, step=0.5, format="+%.1f°C")
 
 active_indicators = perturb_indicators(base_indicators[county_choice], temp_delta_c=temp_delta, rain_delta_pct=rain_delta)
 
 # Header & Persistent Advisory Banner
-st.title(get_text("title", lang))
-st.markdown(f"**{get_text('subtitle', lang)}**")
+st.title("Field Shift: Western Kansas")
+st.markdown("**Farmer-Friendly Crop-Rotation Decision Support with NASA Earth Observations**")
 
 st.markdown(
-    f"""
+    """
     <div class="advisory-banner">
-        {get_text('advisory', lang)}
+        <strong>Important Advisory:</strong> This tool highlights satellite-detected patterns and agronomic alternatives. 
+        It supports farmer judgment and never replaces the on-the-ground experience of producers, certified crop advisers (CCAs), 
+        or Kansas State University Extension specialists.
     </div>
     """,
     unsafe_allow_html=True,
 )
 
 # SECTION 1: "My Fields Now" (NDVI Timeline)
-st.markdown(f"## {get_text('sec_my_fields', lang)}")
+st.markdown("## 1. My Fields Now: Vegetation & Bare-Ground Timeline")
 
 col_thresh, col_stat = st.columns([1, 2])
 with col_thresh:
     ndvi_threshold = st.slider(
-        get_text("threshold_label", lang),
+        "Bare-Field NDVI Threshold",
         min_value=0.10,
         max_value=0.35,
         value=DEFAULT_BARE_FIELD_NDVI,
@@ -378,7 +369,7 @@ st.plotly_chart(fig_ndvi, use_container_width=True)
 st.caption("Data Source: MODIS MOD13Q1 (250m, 16-day composite) via calibrated AppEEARS point proxy modulated by NASA POWER daily observations. [is_proxy = True]")
 
 # SECTION 2: Environmental Stress & Field Conditions
-st.markdown(f"## {get_text('sec_conditions', lang)}")
+st.markdown("## 2. Field Conditions & Stress Indicators")
 
 m1, m2, m3, m4 = st.columns(4)
 heat_meta = active_indicators["heat_stress"]
@@ -444,7 +435,7 @@ with m4:
         st.write("Root-zone soil wetness index (top 1 meter). Values below 0.35 indicate that root-zone moisture is severely depleted, requiring deep-root scavenging or irrigation buffering.")
 
 # SECTION 3: Compare Rotation Strategies
-st.markdown(f"## {get_text('sec_strategies', lang)}")
+st.markdown("## 3. Compare Crop-Rotation Strategies")
 st.markdown("Strategies are scored and ranked using the formula: $S_j = \\sum w_i \\cdot r_{ij} \\cdot a_{ij}$, where base agronomic ratings ($r_{ij}$) are dynamically adjusted by NASA satellite indicators ($a_{ij}$).")
 
 evidence_cards = generate_evidence_cards(county_choice, active_indicators, custom_weights=computed_weights)
@@ -455,7 +446,7 @@ for idx, card in enumerate(evidence_cards):
         is_exist = card["is_existing"]
         card_class = "strategy-card-existing" if is_exist else "strategy-card"
         badge_class = "score-badge-existing" if is_exist else "score-badge"
-        practice_tag = f'<span class="practice-tag">{get_text("current_practice", lang)}</span>' if is_exist else f'<span class="practice-tag">{get_text("rank", lang)} #{idx+1}</span>'
+        practice_tag = '<span class="practice-tag">CURRENT PRACTICE</span>' if is_exist else f'<span class="practice-tag">RANK #{idx+1}</span>'
 
         st.markdown(
             f"""
@@ -505,12 +496,12 @@ for idx, card in enumerate(evidence_cards):
             ])
             st.dataframe(breakdown_df, hide_index=True, use_container_width=True)
 
-# Report Generation & Download Button (P2)
+# Report Generation & Download Button
 report_html = generate_html_report(county_choice, persona_info["title"], active_indicators, evidence_cards, computed_weights)
 st.sidebar.markdown("---")
-st.sidebar.markdown("### Export Strategy Report (P2)")
+st.sidebar.markdown("### Export Strategy Report")
 st.sidebar.download_button(
-    label=get_text("download_report_btn", lang),
+    label="Download Executive Strategy Report (HTML / Printable PDF)",
     data=report_html,
     file_name=f"FieldShift_Report_{county_choice}.html",
     mime="text/html",
@@ -518,7 +509,7 @@ st.sidebar.download_button(
 )
 
 # SECTION 4: Side-by-Side Comparison Tool
-st.markdown(f"## {get_text('sec_comparison', lang)}")
+st.markdown("## 4. Side-by-Side Comparison: Current Practice vs. Chosen Alternative")
 
 existing_card = next((c for c in evidence_cards if c["is_existing"]), evidence_cards[0])
 alt_options = [c for c in evidence_cards if not c["is_existing"]]
@@ -560,7 +551,7 @@ if alt_options:
     st.dataframe(pd.DataFrame(criteria_comparison), hide_index=True, use_container_width=True)
 
 # SECTION 5: Annual Crop Year Timeline View
-st.markdown(f"## {get_text('sec_timeline', lang)}")
+st.markdown("## 5. Annual Crop Year Timeline View")
 
 timeline_data = {
     "Thomas": [
@@ -577,7 +568,7 @@ timeline_data = {
 st.dataframe(pd.DataFrame(timeline_data[county_choice]), hide_index=True, use_container_width=True)
 
 # SECTION 6: Interactive Spatial Map & Vulnerability Grid
-st.markdown(f"## {get_text('sec_map', lang)}")
+st.markdown("## 6. Interactive Geospatial Map: Spatial Variation & Vulnerability Grid")
 
 c_spatial = spatial_data[county_choice]
 cells = c_spatial["cells"]
@@ -631,8 +622,8 @@ for cell in cells:
 st_folium(m, height=380, use_container_width=True)
 st.caption("Interactive Leaflet map showing 3×3 grid tiles around anchor point. High-vulnerability zones (wind detachment or severe aquifer decline) highlighted in red.")
 
-# SECTION 7: Groundwater Trends & NASA GRACE-FO (P2)
-st.markdown(f"## {get_text('sec_groundwater', lang)}")
+# SECTION 7: Groundwater Trends & NASA GRACE-FO
+st.markdown("## 7. Groundwater Trends & NASA GRACE-FO Hydrological Context")
 
 c_gw = gw_data[county_choice]
 gw_col1, gw_col2 = st.columns([1, 1])
@@ -659,16 +650,16 @@ with gw_col2:
         margin=dict(l=40, r=20, t=20, b=40),
         xaxis_title="Monitoring Year",
         yaxis_title="Depth to Groundwater (ft)",
-        yaxis=dict(autorange="reversed", gridcolor="#E2E8F0"),  # Deeper water plotted downward
+        yaxis=dict(autorange="reversed", gridcolor="#E2E8F0"),
         xaxis=dict(gridcolor="#E2E8F0"),
         plot_bgcolor="#FFFFFF",
         paper_bgcolor="#FFFFFF",
     )
     st.plotly_chart(fig_gw, use_container_width=True)
 
-# SECTION 8: OpenET Crop Water Demand & Center-Pivot Savings (P2)
+# SECTION 8: OpenET Crop Water Demand & Center-Pivot Savings
 if county_choice == "Finney":
-    st.markdown(f"## {get_text('sec_openet', lang)}")
+    st.markdown("## 8. OpenET Crop Water Demand & Irrigation Budget")
     c_openet = openet_data["Finney"]
     st.markdown(f'<div class="summary-callout"><strong>Center-Pivot Groundwater Conservation:</strong> {c_openet["key_takeaway"]}</div>', unsafe_allow_html=True)
 
@@ -686,8 +677,8 @@ if county_choice == "Finney":
     ])
     st.dataframe(et_table, hide_index=True, use_container_width=True)
 
-# SECTION 9: ECOSTRESS & MODIS LST Thermal Hotspots (P2)
-st.markdown(f"## {get_text('sec_lst', lang)}")
+# SECTION 9: ECOSTRESS & MODIS LST Thermal Hotspots
+st.markdown("## 9. ECOSTRESS & MODIS Thermal Hotspot Analysis")
 
 c_lst = lst_data[county_choice]
 lst_col1, lst_col2 = st.columns([1, 1])
@@ -711,7 +702,7 @@ with lst_col1:
 with lst_col2:
     st.info(f"**Agronomic Impact on Soil:** {c_lst['agronomic_consequence']}")
 
-# SECTION 10: USDA NASS Historical Yields & PRISM Comparison (P2)
+# SECTION 10: USDA NASS Historical Yields & PRISM Comparison
 st.markdown("## 10. USDA NASS Yield History & Satellite vs. Ground Calibration")
 
 c_nass = nass_data[county_choice]
@@ -741,7 +732,7 @@ with nass_col2:
     st.dataframe(pd.DataFrame(c_nass["market_fit"]), hide_index=True, use_container_width=True)
 
 # SECTION 11: Data Provenance & Scientific Transparency
-st.markdown(f"## {get_text('sec_provenance', lang)}")
+st.markdown("## 11. Data Provenance & Scientific Transparency")
 
 tab_nasa, tab_non_nasa, tab_limits = st.tabs(["NASA Earth Observations", "Non-NASA Ground Context", "Known Scientific Limitations"])
 
