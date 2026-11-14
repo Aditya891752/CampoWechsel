@@ -1,0 +1,50 @@
+{
+  "Thomas": {
+    "location": "Thomas",
+    "source": "NASA_POWER_Precipitation_Proxy",
+    "is_proxy": true,
+    "proxy_note": "GPM IMERG proxy derived from calibrated daily NASA POWER precipitation observations.",
+    "total_storms_over_1in": 16,
+    "annual_avg_storms_over_1in": 1.6,
+    "total_storms_over_2in": 1,
+    "max_single_day_rain_mm": 52.0,
+    "max_single_day_rain_inches": 2.05,
+    "max_rain_date": "2021-03-13",
+    "annual_heavy_events_series": {
+      "2015": 2,
+      "2016": 4,
+      "2017": 2,
+      "2018": 1,
+      "2019": 1,
+      "2020": 0,
+      "2021": 2,
+      "2022": 2,
+      "2023": 1,
+      "2024": 1
+    }
+  },
+  "Finney": {
+    "location": "Finney",
+    "source": "NASA_POWER_Precipitation_Proxy",
+    "is_proxy": true,
+    "proxy_note": "GPM IMERG proxy derived from calibrated daily NASA POWER precipitation observations.",
+    "total_storms_over_1in": 29,
+    "annual_avg_storms_over_1in": 2.9,
+    "total_storms_over_2in": 2,
+    "max_single_day_rain_mm": 57.2,
+    "max_single_day_rain_inches": 2.25,
+    "max_rain_date": "2024-11-08",
+    "annual_heavy_events_series": {
+      "2015": 3,
+      "2016": 4,
+      "2017": 3,
+      "2018": 7,
+      "2019": 2,
+      "2020": 1,
+      "2021": 3,
+      "2022": 1,
+      "2023": 3,
+      "2024": 2
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "Thomas": [
+    {
+      "id": "wheat_fallow",
+      "name": "Wheat–fallow (existing)",
+      "is_existing": true,
+      "county": "Thomas",
+      "system": "Dryland",
+      "description": "Traditional 2-year rotation with 1 crop and a 14-month summer fallow period intended to store soil moisture.",
+      "ratings": {
+        "water": {"score": 2, "source": "K-State Extension MF-2573", "confidence": "estimate, needs local review"},
+        "cover": {"score": 1, "source": "K-State Extension SRL-138", "confidence": "estimate, needs local review"},
+        "organic_matter": {"score": 2, "source": "K-State Agronomy eUpdate 842", "confidence": "estimate, needs local review"},
+        "nitrogen": {"score": 1, "source": "K-State Fertilizer Recommendations MF-2586", "confidence": "estimate, needs local review"},
+        "wind_erosion": {"score": 1, "source": "USDA NRCS Kansas Wind Erosion Tech Note 1", "confidence": "estimate, needs local review"},
+        "pest_break": {"score": 2, "source": "K-State Plant Pathology Wheat Disease Guide", "confidence": "estimate, needs local review"},
+        "income": {"score": 3, "source": "K-State Farm Management Guide MF-572", "confidence": "estimate, needs local review"},
+        "drought": {"score": 2, "source": "Colby Agricultural Research Center Dryland Trials", "confidence": "estimate, needs local review"}
+      }
+    },
+    {
+      "id": "wheat_sorghum_fallow",
+      "name": "Wheat–sorghum–fallow",
+      "is_existing": false,
+      "county": "Thomas",
+      "system": "Dryland",
+      "description": "3-year rotation with 2 crops (wheat then grain sorghum/milo) and 1 fallow period. Reduces summer bare ground and diversifies income.",
+      "ratings": {
+        "water": {"score": 3, "source": "K-State Extension MF-2573", "confidence": "estimate, needs local review"},
+        "cover": {"score": 3, "source": "K-State Extension SRL-138", "confidence": "estimate, needs local review"},
+        "organic_matter": {"score": 3, "source": "K-State Agronomy eUpdate 842", "confidence": "estimate, needs local review"},
+        "nitrogen": {"score": 1, "source": "K-State Fertilizer Recommendations MF-2586", "confidence": "estimate, needs local review"},
+        "wind_erosion": {"score": 3, "source": "USDA NRCS Kansas Wind Erosion Tech Note 1", "confidence": "estimate, needs local review"},
+        "pest_break": {"score": 4, "source": "K-State Weed Management in Sorghum", "confidence": "estimate, needs local review"},
+        "income": {"score": 4, "source": "K-State Farm Management Guide MF-573", "confidence": "estimate, needs local review"},
+        "drought": {"score": 3, "source": "Colby Agricultural Research Center Dryland Trials", "confidence": "estimate, needs local review"}
+      }
+    },
+    {
+      "id": "wheat_sunflower_fallow",
+      "name": "Wheat–sunflower–fallow",
+      "is_existing": false,
+      "county": "Thomas",
+      "system": "Dryland",
+      "description": "Deep-rooting oilseed rotation that scavenges deep subsoil moisture and breaks grassy weed cycles before returning to fallow.",
+      "ratings": {
+        "water": {"score": 3, "source": "K-State Sunflower Production Handbook MF-2384", "confidence": "estimate, needs local review"},
+        "cover": {"score": 3, "source": "K-State Extension SRL-138", "confidence": "estimate, needs local review"},
+        "organic_matter": {"score": 3, "source": "K-State Agronomy eUpdate 842", "confidence": "estimate, needs local review"},
+        "nitrogen": {"score": 1, "source": "K-State Fertilizer Recommendations MF-2586", "confidence": "estimate, needs local review"},
+        "wind_erosion": {"score": 3, "source": "USDA NRCS Kansas Wind Erosion Tech Note 1", "confidence": "estimate, needs local review"},
+        "pest_break": {"score": 4, "source": "High Plains Sunflower Insect & Disease Guide", "confidence": "estimate, needs local review"},
+        "income": {"score": 3, "source": "K-State Farm Management Guide MF-875", "confidence": "estimate, needs local review"},
+        "drought": {"score": 3, "source": "Colby Agricultural Research Center Dryland Trials", "confidence": "estimate, needs local review"}
+      }
+    },
+    {
+      "id": "wheat_legume_cover",
+      "name": "Wheat with legume cover crop in fallow",
+      "is_existing": false,
+      "county": "Thomas",
+      "system": "Dryland",
+      "description": "Replaces open summer fallow with a multi-species or legume cover crop to armor soil against wind and fix atmospheric nitrogen.",
+      "ratings": {
+        "water": {"score": 2, "source": "K-State Cover Crops for Western Kansas MF-3244", "confidence": "estimate, needs local review"},
+        "cover": {"score": 5, "source": "USDA NRCS Cover Crop Tech Guide KS-340", "confidence": "estimate, needs local review"},
+        "organic_matter": {"score": 4, "source": "K-State Soil Health in Dryland Systems", "confidence": "estimate, needs local review"},
+        "nitrogen": {"score": 4, "source": "K-State Legume Inoculation and N Credit MF-2586", "confidence": "estimate, needs local review"},
+        "wind_erosion": {"score": 4, "source": "USDA NRCS Wind Erosion Control Standards", "confidence": "estimate, needs local review"},
+        "pest_break": {"score": 3, "source": "K-State Weed Science Cover Crop Management", "confidence": "estimate, needs local review"},
+        "income": {"score": 2, "source": "K-State Farm Management Cover Crop Economics", "confidence": "estimate, needs local review"},
+        "drought": {"score": 2, "source": "Western Kansas Cover Crop Water Use Trials", "confidence": "estimate, needs local review"}
+      }
+    }
+  ],
+  "Finney": [
+    {
+      "id": "continuous_irrigated_corn",
+      "name": "Continuous irrigated corn (existing)",
+      "is_existing": true,
+      "county": "Finney",
+      "system": "Irrigated",
+      "description": "Monoculture corn under center pivot. High water extraction and fertilizer intensity driving rapid Ogallala drawdown.",
+      "ratings": {
+        "water": {"score": 1, "source": "K-State Corn Production Handbook C-560", "confidence": "estimate, needs local review"},
+        "cover": {"score": 3, "source": "K-State Extension SRL-138", "confidence": "estimate, needs local review"},
+        "organic_matter": {"score": 3, "source": "K-State Agronomy eUpdate 842", "confidence": "estimate, needs local review"},
+        "nitrogen": {"score": 1, "source": "K-State Fertilizer Recommendations MF-2586", "confidence": "estimate, needs local review"},
+        "wind_erosion": {"score": 3, "source": "USDA NRCS Kansas Residue Management Guide", "confidence": "estimate, needs local review"},
+        "pest_break": {"score": 1, "source": "K-State Corn Rootworm and Spider Mite Alert", "confidence": "estimate, needs local review"},
+        "income": {"score": 4, "source": "K-State Farm Management Irrigated Corn Budget MF-578", "confidence": "estimate, needs local review"},
+        "drought": {"score": 2, "source": "Garden City Research-Extension Center Irrigation Trials", "confidence": "estimate, needs local review"}
+      }
+    },
+    {
+      "id": "corn_soybean",
+      "name": "Corn–soybean",
+      "is_existing": false,
+      "county": "Finney",
+      "system": "Irrigated",
+      "description": "Alternating corn with soybeans. Reduces peak seasonal pumping window, provides biological nitrogen credit, and breaks corn rootworm.",
+      "ratings": {
+        "water": {"score": 2, "source": "K-State Soybean Production Handbook C-449", "confidence": "estimate, needs local review"},
+        "cover": {"score": 3, "source": "K-State Extension SRL-138", "confidence": "estimate, needs local review"},
+        "organic_matter": {"score": 3, "source": "K-State Agronomy eUpdate 842", "confidence": "estimate, needs local review"},
+        "nitrogen": {"score": 3, "source": "K-State Nitrogen Credit from Soybeans MF-2586", "confidence": "estimate, needs local review"},
+        "wind_erosion": {"score": 3, "source": "USDA NRCS Kansas Residue Management Guide", "confidence": "estimate, needs local review"},
+        "pest_break": {"score": 3, "source": "K-State Crop Rotation Pest Break Study", "confidence": "estimate, needs local review"},
+        "income": {"score": 4, "source": "K-State Farm Management Irrigated Soybean Budget MF-570", "confidence": "estimate, needs local review"},
+        "drought": {"score": 2, "source": "Garden City Research-Extension Center Irrigation Trials", "confidence": "estimate, needs local review"}
+      }
+    },
+    {
+      "id": "corn_wheat_sorghum",
+      "name": "Corn–wheat–sorghum",
+      "is_existing": false,
+      "county": "Finney",
+      "system": "Irrigated / Limited Irrigation",
+      "description": "3-year limited-irrigation rotation. Spreads pumping across different growth periods, cutting total water use by ~30% under LEMA limits.",
+      "ratings": {
+        "water": {"score": 4, "source": "K-State Limited Irrigation Cropping Systems MF-2895", "confidence": "estimate, needs local review"},
+        "cover": {"score": 4, "source": "K-State Extension SRL-138", "confidence": "estimate, needs local review"},
+        "organic_matter": {"score": 4, "source": "K-State Long-Term Tillage and Rotation Study", "confidence": "estimate, needs local review"},
+        "nitrogen": {"score": 1, "source": "K-State Fertilizer Recommendations MF-2586", "confidence": "estimate, needs local review"},
+        "wind_erosion": {"score": 4, "source": "USDA NRCS High Residue Conservation Systems", "confidence": "estimate, needs local review"},
+        "pest_break": {"score": 5, "source": "K-State Multi-Crop Weed and Pest Management Guide", "confidence": "estimate, needs local review"},
+        "income": {"score": 3, "source": "K-State Farm Management Crop Comparison Budget MF-2166", "confidence": "estimate, needs local review"},
+        "drought": {"score": 4, "source": "Garden City Research-Extension Center Irrigation Trials", "confidence": "estimate, needs local review"}
+      }
+    }
+  ]
+}

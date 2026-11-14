@@ -1,0 +1,74 @@
+{
+  "winter_wheat": {
+    "name": "Hard Red Winter Wheat",
+    "type": "Cool-season grass",
+    "water_requirement_inches": "16 - 18",
+    "rooting_depth_feet": "4 - 6",
+    "planting_window": "Late September to Mid October",
+    "harvest_window": "Late June to Early July",
+    "heat_tolerance": "Moderate (senesces before peak July heat)",
+    "drought_tolerance": "High",
+    "erosion_residue_rating": "Moderate",
+    "kstate_extension_bulletin": "MF-2573"
+  },
+  "grain_sorghum": {
+    "name": "Grain Sorghum (Milo)",
+    "type": "Warm-season C4 grass",
+    "water_requirement_inches": "18 - 22",
+    "rooting_depth_feet": "4 - 5",
+    "planting_window": "Late May to Early June",
+    "harvest_window": "October to November",
+    "heat_tolerance": "Very High (flourishes above 35°C with adequate moisture)",
+    "drought_tolerance": "High (waxy leaves and dormancy during drought)",
+    "erosion_residue_rating": "High (durable, erect stalk residue protects against spring wind)",
+    "kstate_extension_bulletin": "MF-573"
+  },
+  "sunflower": {
+    "name": "Oilseed / Confection Sunflower",
+    "type": "Warm-season broadleaf",
+    "water_requirement_inches": "18 - 24",
+    "rooting_depth_feet": "5 - 7 (scavenges deep subsoil water)",
+    "planting_window": "Early to Late June",
+    "harvest_window": "October to November",
+    "heat_tolerance": "High",
+    "drought_tolerance": "High",
+    "erosion_residue_rating": "Low (brittle residue breaks down quickly under winter snow)",
+    "kstate_extension_bulletin": "MF-2384"
+  },
+  "corn": {
+    "name": "Field Corn (Maize)",
+    "type": "Warm-season C4 grass",
+    "water_requirement_inches": "22 - 28",
+    "rooting_depth_feet": "3 - 5",
+    "planting_window": "Late April to Mid May",
+    "harvest_window": "September to October",
+    "heat_tolerance": "Moderate (sensitive to pollination failure above 35°C)",
+    "drought_tolerance": "Low to Moderate",
+    "erosion_residue_rating": "High",
+    "kstate_extension_bulletin": "C-560"
+  },
+  "soybean": {
+    "name": "Soybean",
+    "type": "Warm-season legume",
+    "water_requirement_inches": "20 - 24",
+    "rooting_depth_feet": "3 - 4",
+    "planting_window": "Mid May to Early June",
+    "harvest_window": "Late September to October",
+    "heat_tolerance": "Moderate",
+    "drought_tolerance": "Moderate",
+    "erosion_residue_rating": "Low to Moderate (leaves fragile, rapid decomposition)",
+    "kstate_extension_bulletin": "C-449"
+  },
+  "cover_crop_mix": {
+    "name": "Legume / Brassica / Grass Cover Crop Mix",
+    "type": "Multi-species cover",
+    "water_requirement_inches": "6 - 10",
+    "rooting_depth_feet": "2 - 5",
+    "planting_window": "July (post-wheat harvest) or Early Spring",
+    "harvest_window": "Terminated prior to spring crop planting",
+    "heat_tolerance": "Species dependent",
+    "drought_tolerance": "Moderate",
+    "erosion_residue_rating": "Very High (living canopy + dense ground armor)",
+    "kstate_extension_bulletin": "MF-3244"
+  }
+}

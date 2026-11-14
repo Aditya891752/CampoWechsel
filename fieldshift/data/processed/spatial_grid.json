@@ -1,0 +1,1036 @@
+{
+  "Thomas": {
+    "type": "FeatureCollection",
+    "county": "Thomas",
+    "anchor_lat": 39.39,
+    "anchor_lon": -101.05,
+    "cells": [
+      {
+        "cell_id": "THO-NW",
+        "county": "Thomas",
+        "label": "Northwest Upland",
+        "lat": 39.46,
+        "lon": -101.12,
+        "peak_ndvi": 0.592,
+        "annual_heat_days": 33.0,
+        "root_zone_moisture": 0.373,
+        "bare_months_count": 4,
+        "vulnerability_classification": "Severe Wind Detachment Zone",
+        "recommended_strategy": "Wheat w/ Legume Cover"
+      },
+      {
+        "cell_id": "THO-N",
+        "county": "Thomas",
+        "label": "North Tableland",
+        "lat": 39.46,
+        "lon": -101.05,
+        "peak_ndvi": 0.578,
+        "annual_heat_days": 33.3,
+        "root_zone_moisture": 0.38,
+        "bare_months_count": 4,
+        "vulnerability_classification": "Severe Wind Detachment Zone",
+        "recommended_strategy": "Wheat w/ Legume Cover"
+      },
+      {
+        "cell_id": "THO-NE",
+        "county": "Thomas",
+        "label": "Northeast Transition",
+        "lat": 39.46,
+        "lon": -100.98,
+        "peak_ndvi": 0.564,
+        "annual_heat_days": 33.7,
+        "root_zone_moisture": 0.387,
+        "bare_months_count": 4,
+        "vulnerability_classification": "Severe Wind Detachment Zone",
+        "recommended_strategy": "Wheat w/ Legume Cover"
+      },
+      {
+        "cell_id": "THO-W",
+        "county": "Thomas",
+        "label": "West Flats",
+        "lat": 39.39,
+        "lon": -101.12,
+        "peak_ndvi": 0.564,
+        "annual_heat_days": 33.5,
+        "root_zone_moisture": 0.373,
+        "bare_months_count": 4,
+        "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+        "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+      },
+      {
+        "cell_id": "THO-C",
+        "county": "Thomas",
+        "label": "Colby Anchor Hub",
+        "lat": 39.39,
+        "lon": -101.05,
+        "peak_ndvi": 0.55,
+        "annual_heat_days": 33.9,
+        "root_zone_moisture": 0.38,
+        "bare_months_count": 4,
+        "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+        "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+      },
+      {
+        "cell_id": "THO-E",
+        "county": "Thomas",
+        "label": "East Plains",
+        "lat": 39.39,
+        "lon": -100.98,
+        "peak_ndvi": 0.536,
+        "annual_heat_days": 34.2,
+        "root_zone_moisture": 0.387,
+        "bare_months_count": 4,
+        "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+        "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+      },
+      {
+        "cell_id": "THO-SW",
+        "county": "Thomas",
+        "label": "Southwest Terrace",
+        "lat": 39.32,
+        "lon": -101.12,
+        "peak_ndvi": 0.536,
+        "annual_heat_days": 34.1,
+        "root_zone_moisture": 0.373,
+        "bare_months_count": 5,
+        "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+        "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+      },
+      {
+        "cell_id": "THO-S",
+        "county": "Thomas",
+        "label": "South Draw",
+        "lat": 39.32,
+        "lon": -101.05,
+        "peak_ndvi": 0.522,
+        "annual_heat_days": 34.5,
+        "root_zone_moisture": 0.38,
+        "bare_months_count": 5,
+        "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+        "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+      },
+      {
+        "cell_id": "THO-SE",
+        "county": "Thomas",
+        "label": "Southeast Plain",
+        "lat": 39.32,
+        "lon": -100.98,
+        "peak_ndvi": 0.508,
+        "annual_heat_days": 34.8,
+        "root_zone_moisture": 0.387,
+        "bare_months_count": 5,
+        "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+        "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+      }
+    ],
+    "geojson": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-NW",
+            "county": "Thomas",
+            "label": "Northwest Upland",
+            "lat": 39.46,
+            "lon": -101.12,
+            "peak_ndvi": 0.592,
+            "annual_heat_days": 33.0,
+            "root_zone_moisture": 0.373,
+            "bare_months_count": 4,
+            "vulnerability_classification": "Severe Wind Detachment Zone",
+            "recommended_strategy": "Wheat w/ Legume Cover"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.155,
+                  39.425000000000004
+                ],
+                [
+                  -101.08500000000001,
+                  39.425000000000004
+                ],
+                [
+                  -101.08500000000001,
+                  39.495
+                ],
+                [
+                  -101.155,
+                  39.495
+                ],
+                [
+                  -101.155,
+                  39.425000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-N",
+            "county": "Thomas",
+            "label": "North Tableland",
+            "lat": 39.46,
+            "lon": -101.05,
+            "peak_ndvi": 0.578,
+            "annual_heat_days": 33.3,
+            "root_zone_moisture": 0.38,
+            "bare_months_count": 4,
+            "vulnerability_classification": "Severe Wind Detachment Zone",
+            "recommended_strategy": "Wheat w/ Legume Cover"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.085,
+                  39.425000000000004
+                ],
+                [
+                  -101.015,
+                  39.425000000000004
+                ],
+                [
+                  -101.015,
+                  39.495
+                ],
+                [
+                  -101.085,
+                  39.495
+                ],
+                [
+                  -101.085,
+                  39.425000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-NE",
+            "county": "Thomas",
+            "label": "Northeast Transition",
+            "lat": 39.46,
+            "lon": -100.98,
+            "peak_ndvi": 0.564,
+            "annual_heat_days": 33.7,
+            "root_zone_moisture": 0.387,
+            "bare_months_count": 4,
+            "vulnerability_classification": "Severe Wind Detachment Zone",
+            "recommended_strategy": "Wheat w/ Legume Cover"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.015,
+                  39.425000000000004
+                ],
+                [
+                  -100.94500000000001,
+                  39.425000000000004
+                ],
+                [
+                  -100.94500000000001,
+                  39.495
+                ],
+                [
+                  -101.015,
+                  39.495
+                ],
+                [
+                  -101.015,
+                  39.425000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-W",
+            "county": "Thomas",
+            "label": "West Flats",
+            "lat": 39.39,
+            "lon": -101.12,
+            "peak_ndvi": 0.564,
+            "annual_heat_days": 33.5,
+            "root_zone_moisture": 0.373,
+            "bare_months_count": 4,
+            "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+            "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.155,
+                  39.355000000000004
+                ],
+                [
+                  -101.08500000000001,
+                  39.355000000000004
+                ],
+                [
+                  -101.08500000000001,
+                  39.425
+                ],
+                [
+                  -101.155,
+                  39.425
+                ],
+                [
+                  -101.155,
+                  39.355000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-C",
+            "county": "Thomas",
+            "label": "Colby Anchor Hub",
+            "lat": 39.39,
+            "lon": -101.05,
+            "peak_ndvi": 0.55,
+            "annual_heat_days": 33.9,
+            "root_zone_moisture": 0.38,
+            "bare_months_count": 4,
+            "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+            "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.085,
+                  39.355000000000004
+                ],
+                [
+                  -101.015,
+                  39.355000000000004
+                ],
+                [
+                  -101.015,
+                  39.425
+                ],
+                [
+                  -101.085,
+                  39.425
+                ],
+                [
+                  -101.085,
+                  39.355000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-E",
+            "county": "Thomas",
+            "label": "East Plains",
+            "lat": 39.39,
+            "lon": -100.98,
+            "peak_ndvi": 0.536,
+            "annual_heat_days": 34.2,
+            "root_zone_moisture": 0.387,
+            "bare_months_count": 4,
+            "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+            "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.015,
+                  39.355000000000004
+                ],
+                [
+                  -100.94500000000001,
+                  39.355000000000004
+                ],
+                [
+                  -100.94500000000001,
+                  39.425
+                ],
+                [
+                  -101.015,
+                  39.425
+                ],
+                [
+                  -101.015,
+                  39.355000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-SW",
+            "county": "Thomas",
+            "label": "Southwest Terrace",
+            "lat": 39.32,
+            "lon": -101.12,
+            "peak_ndvi": 0.536,
+            "annual_heat_days": 34.1,
+            "root_zone_moisture": 0.373,
+            "bare_months_count": 5,
+            "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+            "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.155,
+                  39.285000000000004
+                ],
+                [
+                  -101.08500000000001,
+                  39.285000000000004
+                ],
+                [
+                  -101.08500000000001,
+                  39.355
+                ],
+                [
+                  -101.155,
+                  39.355
+                ],
+                [
+                  -101.155,
+                  39.285000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-S",
+            "county": "Thomas",
+            "label": "South Draw",
+            "lat": 39.32,
+            "lon": -101.05,
+            "peak_ndvi": 0.522,
+            "annual_heat_days": 34.5,
+            "root_zone_moisture": 0.38,
+            "bare_months_count": 5,
+            "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+            "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.085,
+                  39.285000000000004
+                ],
+                [
+                  -101.015,
+                  39.285000000000004
+                ],
+                [
+                  -101.015,
+                  39.355
+                ],
+                [
+                  -101.085,
+                  39.355
+                ],
+                [
+                  -101.085,
+                  39.285000000000004
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "THO-SE",
+            "county": "Thomas",
+            "label": "Southeast Plain",
+            "lat": 39.32,
+            "lon": -100.98,
+            "peak_ndvi": 0.508,
+            "annual_heat_days": 34.8,
+            "root_zone_moisture": 0.387,
+            "bare_months_count": 5,
+            "vulnerability_classification": "Prolonged Fallow Moisture Deficit",
+            "recommended_strategy": "Wheat\u2013Sorghum\u2013Fallow"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -101.015,
+                  39.285000000000004
+                ],
+                [
+                  -100.94500000000001,
+                  39.285000000000004
+                ],
+                [
+                  -100.94500000000001,
+                  39.355
+                ],
+                [
+                  -101.015,
+                  39.355
+                ],
+                [
+                  -101.015,
+                  39.285000000000004
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Finney": {
+    "type": "FeatureCollection",
+    "county": "Finney",
+    "anchor_lat": 37.97,
+    "anchor_lon": -100.87,
+    "cells": [
+      {
+        "cell_id": "FIN-NW",
+        "county": "Finney",
+        "label": "Northwest Upland",
+        "lat": 38.04,
+        "lon": -100.94,
+        "peak_ndvi": 0.745,
+        "annual_heat_days": 43.0,
+        "root_zone_moisture": 0.334,
+        "bare_months_count": 4,
+        "vulnerability_classification": "High Atmospheric Heat Stress",
+        "recommended_strategy": "Corn\u2013Soybean"
+      },
+      {
+        "cell_id": "FIN-N",
+        "county": "Finney",
+        "label": "North Tableland",
+        "lat": 38.04,
+        "lon": -100.87,
+        "peak_ndvi": 0.759,
+        "annual_heat_days": 42.7,
+        "root_zone_moisture": 0.334,
+        "bare_months_count": 4,
+        "vulnerability_classification": "High Atmospheric Heat Stress",
+        "recommended_strategy": "Corn\u2013Soybean"
+      },
+      {
+        "cell_id": "FIN-NE",
+        "county": "Finney",
+        "label": "Northeast Transition",
+        "lat": 38.04,
+        "lon": -100.8,
+        "peak_ndvi": 0.773,
+        "annual_heat_days": 42.4,
+        "root_zone_moisture": 0.334,
+        "bare_months_count": 4,
+        "vulnerability_classification": "High Atmospheric Heat Stress",
+        "recommended_strategy": "Corn\u2013Soybean"
+      },
+      {
+        "cell_id": "FIN-W",
+        "county": "Finney",
+        "label": "West Flats",
+        "lat": 37.97,
+        "lon": -100.94,
+        "peak_ndvi": 0.766,
+        "annual_heat_days": 42.6,
+        "root_zone_moisture": 0.34,
+        "bare_months_count": 4,
+        "vulnerability_classification": "High Atmospheric Heat Stress",
+        "recommended_strategy": "Corn\u2013Soybean"
+      },
+      {
+        "cell_id": "FIN-C",
+        "county": "Finney",
+        "label": "Garden City Anchor Hub",
+        "lat": 37.97,
+        "lon": -100.87,
+        "peak_ndvi": 0.78,
+        "annual_heat_days": 42.3,
+        "root_zone_moisture": 0.34,
+        "bare_months_count": 4,
+        "vulnerability_classification": "High Atmospheric Heat Stress",
+        "recommended_strategy": "Corn\u2013Soybean"
+      },
+      {
+        "cell_id": "FIN-E",
+        "county": "Finney",
+        "label": "East Plains",
+        "lat": 37.97,
+        "lon": -100.8,
+        "peak_ndvi": 0.794,
+        "annual_heat_days": 42.0,
+        "root_zone_moisture": 0.34,
+        "bare_months_count": 4,
+        "vulnerability_classification": "High Atmospheric Heat Stress",
+        "recommended_strategy": "Corn\u2013Soybean"
+      },
+      {
+        "cell_id": "FIN-SW",
+        "county": "Finney",
+        "label": "Southwest Terrace",
+        "lat": 37.9,
+        "lon": -100.94,
+        "peak_ndvi": 0.787,
+        "annual_heat_days": 42.2,
+        "root_zone_moisture": 0.346,
+        "bare_months_count": 5,
+        "vulnerability_classification": "Critical Ogallala Drawdown Zone",
+        "recommended_strategy": "Corn\u2013Wheat\u2013Sorghum"
+      },
+      {
+        "cell_id": "FIN-S",
+        "county": "Finney",
+        "label": "South Draw",
+        "lat": 37.9,
+        "lon": -100.87,
+        "peak_ndvi": 0.801,
+        "annual_heat_days": 41.9,
+        "root_zone_moisture": 0.346,
+        "bare_months_count": 5,
+        "vulnerability_classification": "Critical Ogallala Drawdown Zone",
+        "recommended_strategy": "Corn\u2013Wheat\u2013Sorghum"
+      },
+      {
+        "cell_id": "FIN-SE",
+        "county": "Finney",
+        "label": "Southeast Plain",
+        "lat": 37.9,
+        "lon": -100.8,
+        "peak_ndvi": 0.815,
+        "annual_heat_days": 41.6,
+        "root_zone_moisture": 0.346,
+        "bare_months_count": 5,
+        "vulnerability_classification": "Critical Ogallala Drawdown Zone",
+        "recommended_strategy": "Corn\u2013Wheat\u2013Sorghum"
+      }
+    ],
+    "geojson": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-NW",
+            "county": "Finney",
+            "label": "Northwest Upland",
+            "lat": 38.04,
+            "lon": -100.94,
+            "peak_ndvi": 0.745,
+            "annual_heat_days": 43.0,
+            "root_zone_moisture": 0.334,
+            "bare_months_count": 4,
+            "vulnerability_classification": "High Atmospheric Heat Stress",
+            "recommended_strategy": "Corn\u2013Soybean"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.975,
+                  38.005
+                ],
+                [
+                  -100.905,
+                  38.005
+                ],
+                [
+                  -100.905,
+                  38.074999999999996
+                ],
+                [
+                  -100.975,
+                  38.074999999999996
+                ],
+                [
+                  -100.975,
+                  38.005
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-N",
+            "county": "Finney",
+            "label": "North Tableland",
+            "lat": 38.04,
+            "lon": -100.87,
+            "peak_ndvi": 0.759,
+            "annual_heat_days": 42.7,
+            "root_zone_moisture": 0.334,
+            "bare_months_count": 4,
+            "vulnerability_classification": "High Atmospheric Heat Stress",
+            "recommended_strategy": "Corn\u2013Soybean"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.905,
+                  38.005
+                ],
+                [
+                  -100.83500000000001,
+                  38.005
+                ],
+                [
+                  -100.83500000000001,
+                  38.074999999999996
+                ],
+                [
+                  -100.905,
+                  38.074999999999996
+                ],
+                [
+                  -100.905,
+                  38.005
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-NE",
+            "county": "Finney",
+            "label": "Northeast Transition",
+            "lat": 38.04,
+            "lon": -100.8,
+            "peak_ndvi": 0.773,
+            "annual_heat_days": 42.4,
+            "root_zone_moisture": 0.334,
+            "bare_months_count": 4,
+            "vulnerability_classification": "High Atmospheric Heat Stress",
+            "recommended_strategy": "Corn\u2013Soybean"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.835,
+                  38.005
+                ],
+                [
+                  -100.765,
+                  38.005
+                ],
+                [
+                  -100.765,
+                  38.074999999999996
+                ],
+                [
+                  -100.835,
+                  38.074999999999996
+                ],
+                [
+                  -100.835,
+                  38.005
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-W",
+            "county": "Finney",
+            "label": "West Flats",
+            "lat": 37.97,
+            "lon": -100.94,
+            "peak_ndvi": 0.766,
+            "annual_heat_days": 42.6,
+            "root_zone_moisture": 0.34,
+            "bare_months_count": 4,
+            "vulnerability_classification": "High Atmospheric Heat Stress",
+            "recommended_strategy": "Corn\u2013Soybean"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.975,
+                  37.935
+                ],
+                [
+                  -100.905,
+                  37.935
+                ],
+                [
+                  -100.905,
+                  38.004999999999995
+                ],
+                [
+                  -100.975,
+                  38.004999999999995
+                ],
+                [
+                  -100.975,
+                  37.935
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-C",
+            "county": "Finney",
+            "label": "Garden City Anchor Hub",
+            "lat": 37.97,
+            "lon": -100.87,
+            "peak_ndvi": 0.78,
+            "annual_heat_days": 42.3,
+            "root_zone_moisture": 0.34,
+            "bare_months_count": 4,
+            "vulnerability_classification": "High Atmospheric Heat Stress",
+            "recommended_strategy": "Corn\u2013Soybean"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.905,
+                  37.935
+                ],
+                [
+                  -100.83500000000001,
+                  37.935
+                ],
+                [
+                  -100.83500000000001,
+                  38.004999999999995
+                ],
+                [
+                  -100.905,
+                  38.004999999999995
+                ],
+                [
+                  -100.905,
+                  37.935
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-E",
+            "county": "Finney",
+            "label": "East Plains",
+            "lat": 37.97,
+            "lon": -100.8,
+            "peak_ndvi": 0.794,
+            "annual_heat_days": 42.0,
+            "root_zone_moisture": 0.34,
+            "bare_months_count": 4,
+            "vulnerability_classification": "High Atmospheric Heat Stress",
+            "recommended_strategy": "Corn\u2013Soybean"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.835,
+                  37.935
+                ],
+                [
+                  -100.765,
+                  37.935
+                ],
+                [
+                  -100.765,
+                  38.004999999999995
+                ],
+                [
+                  -100.835,
+                  38.004999999999995
+                ],
+                [
+                  -100.835,
+                  37.935
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-SW",
+            "county": "Finney",
+            "label": "Southwest Terrace",
+            "lat": 37.9,
+            "lon": -100.94,
+            "peak_ndvi": 0.787,
+            "annual_heat_days": 42.2,
+            "root_zone_moisture": 0.346,
+            "bare_months_count": 5,
+            "vulnerability_classification": "Critical Ogallala Drawdown Zone",
+            "recommended_strategy": "Corn\u2013Wheat\u2013Sorghum"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.975,
+                  37.865
+                ],
+                [
+                  -100.905,
+                  37.865
+                ],
+                [
+                  -100.905,
+                  37.934999999999995
+                ],
+                [
+                  -100.975,
+                  37.934999999999995
+                ],
+                [
+                  -100.975,
+                  37.865
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-S",
+            "county": "Finney",
+            "label": "South Draw",
+            "lat": 37.9,
+            "lon": -100.87,
+            "peak_ndvi": 0.801,
+            "annual_heat_days": 41.9,
+            "root_zone_moisture": 0.346,
+            "bare_months_count": 5,
+            "vulnerability_classification": "Critical Ogallala Drawdown Zone",
+            "recommended_strategy": "Corn\u2013Wheat\u2013Sorghum"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.905,
+                  37.865
+                ],
+                [
+                  -100.83500000000001,
+                  37.865
+                ],
+                [
+                  -100.83500000000001,
+                  37.934999999999995
+                ],
+                [
+                  -100.905,
+                  37.934999999999995
+                ],
+                [
+                  -100.905,
+                  37.865
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "cell_id": "FIN-SE",
+            "county": "Finney",
+            "label": "Southeast Plain",
+            "lat": 37.9,
+            "lon": -100.8,
+            "peak_ndvi": 0.815,
+            "annual_heat_days": 41.6,
+            "root_zone_moisture": 0.346,
+            "bare_months_count": 5,
+            "vulnerability_classification": "Critical Ogallala Drawdown Zone",
+            "recommended_strategy": "Corn\u2013Wheat\u2013Sorghum"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -100.835,
+                  37.865
+                ],
+                [
+                  -100.765,
+                  37.865
+                ],
+                [
+                  -100.765,
+                  37.934999999999995
+                ],
+                [
+                  -100.835,
+                  37.934999999999995
+                ],
+                [
+                  -100.835,
+                  37.865
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

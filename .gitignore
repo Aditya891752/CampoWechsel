@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments & secrets
+.env
+.env.*
+*.pem
+credentials.json
+secrets/
+
+# Streamlit run files
+.streamlit/secrets.toml
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Testing & cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Pip auxiliary folders
+etc/
+share/
+
+# OS files
+.DS_Store
+Thumbs.db

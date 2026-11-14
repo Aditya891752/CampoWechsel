@@ -1,0 +1,487 @@
+{
+  "Thomas": {
+    "county": "Thomas",
+    "heat_stress": {
+      "annual_mean_heat_days": 33.9,
+      "max_annual_heat_days": 47,
+      "worst_heat_year": 2024,
+      "annual_heat_series": {
+        "2015": 30,
+        "2016": 28,
+        "2017": 24,
+        "2018": 30,
+        "2019": 25,
+        "2020": 43,
+        "2021": 38,
+        "2022": 46,
+        "2023": 28,
+        "2024": 47
+      },
+      "monthly_heat_distribution": {
+        "Jan": 0,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 0,
+        "May": 5,
+        "Jun": 80,
+        "Jul": 120,
+        "Aug": 88,
+        "Sep": 46,
+        "Oct": 0,
+        "Nov": 0,
+        "Dec": 0
+      },
+      "max_temp_c": 43.0
+    },
+    "frost_risk": {
+      "median_last_spring_freeze_doy": 110,
+      "median_last_spring_freeze_date": "April 19",
+      "median_first_fall_freeze_doy": 296,
+      "median_first_fall_freeze_date": "October 22",
+      "median_frost_free_days": 186
+    },
+    "rainfall": {
+      "annual_mean_precip_mm": 498.0,
+      "annual_mean_precip_inches": 19.6,
+      "annual_precip_std_mm": 84.2,
+      "rainfall_variability_cv": 0.17,
+      "max_dry_spell_days": 65,
+      "mean_dry_spell_days": 6.7,
+      "p90_dry_spell_days": 17,
+      "monthly_precip_mm": {
+        "Jan": {
+          "mean": 0.4,
+          "std": 1.5
+        },
+        "Feb": {
+          "mean": 0.4,
+          "std": 1.6
+        },
+        "Mar": {
+          "mean": 1.0,
+          "std": 3.8
+        },
+        "Apr": {
+          "mean": 1.3,
+          "std": 4.6
+        },
+        "May": {
+          "mean": 3.5,
+          "std": 6.3
+        },
+        "Jun": {
+          "mean": 2.2,
+          "std": 4.0
+        },
+        "Jul": {
+          "mean": 2.5,
+          "std": 4.9
+        },
+        "Aug": {
+          "mean": 2.1,
+          "std": 4.1
+        },
+        "Sep": {
+          "mean": 1.2,
+          "std": 4.0
+        },
+        "Oct": {
+          "mean": 0.7,
+          "std": 2.5
+        },
+        "Nov": {
+          "mean": 0.6,
+          "std": 2.8
+        },
+        "Dec": {
+          "mean": 0.3,
+          "std": 1.3
+        }
+      }
+    },
+    "ndvi_bare_field": {
+      "threshold": 0.2,
+      "bare_field_months_count": 6,
+      "bare_field_months": [
+        "Jan",
+        "Feb",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Dec"
+      ],
+      "bare_field_summary": "Bare field detected for 6 months (Jan, Feb, Jul, Aug, Sep, Dec) with NDVI < 0.20",
+      "monthly_climatology": [
+        {
+          "month": 1,
+          "month_name": "Jan",
+          "mean": 0.1828,
+          "std": 0.0176,
+          "min": 0.1609,
+          "max": 0.2237,
+          "is_bare": true
+        },
+        {
+          "month": 2,
+          "month_name": "Feb",
+          "mean": 0.1985,
+          "std": 0.0141,
+          "min": 0.1747,
+          "max": 0.224,
+          "is_bare": true
+        },
+        {
+          "month": 3,
+          "month_name": "Mar",
+          "mean": 0.2745,
+          "std": 0.0155,
+          "min": 0.248,
+          "max": 0.3048,
+          "is_bare": false
+        },
+        {
+          "month": 4,
+          "month_name": "Apr",
+          "mean": 0.4458,
+          "std": 0.0127,
+          "min": 0.4242,
+          "max": 0.48,
+          "is_bare": false
+        },
+        {
+          "month": 5,
+          "month_name": "May",
+          "mean": 0.5879,
+          "std": 0.0117,
+          "min": 0.5631,
+          "max": 0.609,
+          "is_bare": false
+        },
+        {
+          "month": 6,
+          "month_name": "Jun",
+          "mean": 0.311,
+          "std": 0.0268,
+          "min": 0.2591,
+          "max": 0.3478,
+          "is_bare": false
+        },
+        {
+          "month": 7,
+          "month_name": "Jul",
+          "mean": 0.1202,
+          "std": 0.0208,
+          "min": 0.1,
+          "max": 0.1831,
+          "is_bare": true
+        },
+        {
+          "month": 8,
+          "month_name": "Aug",
+          "mean": 0.1146,
+          "std": 0.0191,
+          "min": 0.1,
+          "max": 0.1605,
+          "is_bare": true
+        },
+        {
+          "month": 9,
+          "month_name": "Sep",
+          "mean": 0.1818,
+          "std": 0.0133,
+          "min": 0.1541,
+          "max": 0.2065,
+          "is_bare": true
+        },
+        {
+          "month": 10,
+          "month_name": "Oct",
+          "mean": 0.224,
+          "std": 0.0137,
+          "min": 0.1979,
+          "max": 0.2578,
+          "is_bare": false
+        },
+        {
+          "month": 11,
+          "month_name": "Nov",
+          "mean": 0.2022,
+          "std": 0.0138,
+          "min": 0.1692,
+          "max": 0.2282,
+          "is_bare": false
+        },
+        {
+          "month": 12,
+          "month_name": "Dec",
+          "mean": 0.1786,
+          "std": 0.0116,
+          "min": 0.1583,
+          "max": 0.1983,
+          "is_bare": true
+        }
+      ]
+    },
+    "soil_moisture": {
+      "mean_root_zone_wetness": 0.384,
+      "monthly_root_zone_wetness": {
+        "Jan": 0.388,
+        "Feb": 0.388,
+        "Mar": 0.386,
+        "Apr": 0.384,
+        "May": 0.41,
+        "Jun": 0.389,
+        "Jul": 0.378,
+        "Aug": 0.382,
+        "Sep": 0.369,
+        "Oct": 0.372,
+        "Nov": 0.378,
+        "Dec": 0.38
+      },
+      "is_proxy": true,
+      "proxy_source": "NASA_POWER_MERRA2_GWETROOT"
+    }
+  },
+  "Finney": {
+    "county": "Finney",
+    "heat_stress": {
+      "annual_mean_heat_days": 42.3,
+      "max_annual_heat_days": 68,
+      "worst_heat_year": 2022,
+      "annual_heat_series": {
+        "2015": 35,
+        "2016": 27,
+        "2017": 32,
+        "2018": 33,
+        "2019": 37,
+        "2020": 50,
+        "2021": 47,
+        "2022": 68,
+        "2023": 37,
+        "2024": 57
+      },
+      "monthly_heat_distribution": {
+        "Jan": 0,
+        "Feb": 0,
+        "Mar": 0,
+        "Apr": 0,
+        "May": 8,
+        "Jun": 102,
+        "Jul": 136,
+        "Aug": 114,
+        "Sep": 62,
+        "Oct": 1,
+        "Nov": 0,
+        "Dec": 0
+      },
+      "max_temp_c": 44.5
+    },
+    "frost_risk": {
+      "median_last_spring_freeze_doy": 105,
+      "median_last_spring_freeze_date": "April 14",
+      "median_first_fall_freeze_doy": 306,
+      "median_first_fall_freeze_date": "November 01",
+      "median_frost_free_days": 201
+    },
+    "rainfall": {
+      "annual_mean_precip_mm": 575.6,
+      "annual_mean_precip_inches": 22.7,
+      "annual_precip_std_mm": 136.5,
+      "rainfall_variability_cv": 0.24,
+      "max_dry_spell_days": 162,
+      "mean_dry_spell_days": 7.3,
+      "p90_dry_spell_days": 17,
+      "monthly_precip_mm": {
+        "Jan": {
+          "mean": 0.5,
+          "std": 1.7
+        },
+        "Feb": {
+          "mean": 0.4,
+          "std": 1.7
+        },
+        "Mar": {
+          "mean": 0.9,
+          "std": 3.9
+        },
+        "Apr": {
+          "mean": 1.4,
+          "std": 5.1
+        },
+        "May": {
+          "mean": 3.3,
+          "std": 6.2
+        },
+        "Jun": {
+          "mean": 2.6,
+          "std": 4.9
+        },
+        "Jul": {
+          "mean": 3.6,
+          "std": 6.8
+        },
+        "Aug": {
+          "mean": 2.3,
+          "std": 4.3
+        },
+        "Sep": {
+          "mean": 1.4,
+          "std": 4.3
+        },
+        "Oct": {
+          "mean": 1.1,
+          "std": 4.6
+        },
+        "Nov": {
+          "mean": 0.7,
+          "std": 4.2
+        },
+        "Dec": {
+          "mean": 0.6,
+          "std": 3.1
+        }
+      }
+    },
+    "ndvi_bare_field": {
+      "threshold": 0.2,
+      "bare_field_months_count": 5,
+      "bare_field_months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Nov",
+        "Dec"
+      ],
+      "bare_field_summary": "Bare field detected for 5 months (Jan, Feb, Mar, Nov, Dec) with NDVI < 0.20",
+      "monthly_climatology": [
+        {
+          "month": 1,
+          "month_name": "Jan",
+          "mean": 0.1685,
+          "std": 0.0148,
+          "min": 0.1468,
+          "max": 0.1975,
+          "is_bare": true
+        },
+        {
+          "month": 2,
+          "month_name": "Feb",
+          "mean": 0.1866,
+          "std": 0.0183,
+          "min": 0.1445,
+          "max": 0.2211,
+          "is_bare": true
+        },
+        {
+          "month": 3,
+          "month_name": "Mar",
+          "mean": 0.1889,
+          "std": 0.0198,
+          "min": 0.141,
+          "max": 0.2205,
+          "is_bare": true
+        },
+        {
+          "month": 4,
+          "month_name": "Apr",
+          "mean": 0.2036,
+          "std": 0.0142,
+          "min": 0.1775,
+          "max": 0.2277,
+          "is_bare": false
+        },
+        {
+          "month": 5,
+          "month_name": "May",
+          "mean": 0.2528,
+          "std": 0.0171,
+          "min": 0.2212,
+          "max": 0.2878,
+          "is_bare": false
+        },
+        {
+          "month": 6,
+          "month_name": "Jun",
+          "mean": 0.4905,
+          "std": 0.033,
+          "min": 0.4262,
+          "max": 0.5402,
+          "is_bare": false
+        },
+        {
+          "month": 7,
+          "month_name": "Jul",
+          "mean": 0.702,
+          "std": 0.0324,
+          "min": 0.6351,
+          "max": 0.7597,
+          "is_bare": false
+        },
+        {
+          "month": 8,
+          "month_name": "Aug",
+          "mean": 0.7342,
+          "std": 0.0377,
+          "min": 0.6544,
+          "max": 0.7841,
+          "is_bare": false
+        },
+        {
+          "month": 9,
+          "month_name": "Sep",
+          "mean": 0.5575,
+          "std": 0.0117,
+          "min": 0.5363,
+          "max": 0.5768,
+          "is_bare": false
+        },
+        {
+          "month": 10,
+          "month_name": "Oct",
+          "mean": 0.2684,
+          "std": 0.01,
+          "min": 0.251,
+          "max": 0.2878,
+          "is_bare": false
+        },
+        {
+          "month": 11,
+          "month_name": "Nov",
+          "mean": 0.1793,
+          "std": 0.0169,
+          "min": 0.1454,
+          "max": 0.2066,
+          "is_bare": true
+        },
+        {
+          "month": 12,
+          "month_name": "Dec",
+          "mean": 0.1727,
+          "std": 0.0162,
+          "min": 0.1364,
+          "max": 0.208,
+          "is_bare": true
+        }
+      ]
+    },
+    "soil_moisture": {
+      "mean_root_zone_wetness": 0.3,
+      "monthly_root_zone_wetness": {
+        "Jan": 0.305,
+        "Feb": 0.303,
+        "Mar": 0.3,
+        "Apr": 0.297,
+        "May": 0.319,
+        "Jun": 0.304,
+        "Jul": 0.299,
+        "Aug": 0.293,
+        "Sep": 0.285,
+        "Oct": 0.291,
+        "Nov": 0.3,
+        "Dec": 0.302
+      },
+      "is_proxy": true,
+      "proxy_source": "NASA_POWER_MERRA2_GWETROOT"
+    }
+  }
+}

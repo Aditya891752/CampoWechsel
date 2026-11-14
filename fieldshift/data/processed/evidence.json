@@ -1,0 +1,754 @@
+{
+  "Thomas": [
+    {
+      "strategy": "Wheat with legume cover crop in fallow",
+      "id": "wheat_legume_cover",
+      "is_existing": false,
+      "score": 3.46,
+      "why_suggested": "Replaces vulnerable bare fallow with a living multi-species or legume cover crop to build soil organic matter, fix biological nitrogen, and maximize continuous ground cover.",
+      "evidence": [
+        {
+          "signal": "Directly addresses the 4-month NDVI bare-field window, sustaining ground cover across summer months",
+          "source": "MODIS MOD13Q1 (250m)",
+          "is_proxy": true
+        },
+        {
+          "signal": "Root-zone soil wetness (0.384) requires careful termination timing to avoid moisture penalty",
+          "source": "NASA POWER MERRA-2",
+          "is_proxy": true
+        }
+      ],
+      "benefits": [
+        "Superior living armor against High Plains wind erosion",
+        "Biological nitrogen fixation reduces synthetic fertilizer costs",
+        "Accelerates soil organic carbon and infiltration capacity"
+      ],
+      "information_gaps": [
+        "Field-scale cover crop transpiration vs. fallow evaporation trade-off not resolved by satellite",
+        "Cover crop seed mix availability and cost in Northwest Kansas"
+      ],
+      "risks_needing_local_review": [
+        "Risk of depleting stored soil moisture needed for subsequent cash crop stand establishment",
+        "Cover crop termination timing must be managed aggressively before soil moisture is exhausted",
+        "Requires additional seed investment with no direct harvestable cash grain revenue"
+      ],
+      "confidence": {
+        "water": "low",
+        "cover": "high",
+        "wind_erosion": "high",
+        "income": "low",
+        "drought": "low"
+      },
+      "criteria_breakdown": {
+        "water": {
+          "base_rating": 2.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.2,
+          "effective_contribution": 0.4,
+          "source": "K-State Cover Crops for Western Kansas MF-3244",
+          "confidence": "estimate, needs local review"
+        },
+        "cover": {
+          "base_rating": 5.0,
+          "adjustment_a": 1.1,
+          "weight_w": 0.15,
+          "effective_contribution": 0.825,
+          "source": "USDA NRCS Cover Crop Tech Guide KS-340",
+          "confidence": "estimate, needs local review"
+        },
+        "organic_matter": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.08,
+          "weight_w": 0.1,
+          "effective_contribution": 0.432,
+          "source": "K-State Soil Health in Dryland Systems",
+          "confidence": "estimate, needs local review"
+        },
+        "nitrogen": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.05,
+          "effective_contribution": 0.2,
+          "source": "K-State Legume Inoculation and N Credit MF-2586",
+          "confidence": "estimate, needs local review"
+        },
+        "wind_erosion": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.1,
+          "weight_w": 0.2,
+          "effective_contribution": 0.88,
+          "source": "USDA NRCS Wind Erosion Control Standards",
+          "confidence": "estimate, needs local review"
+        },
+        "pest_break": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.1,
+          "effective_contribution": 0.315,
+          "source": "K-State Weed Science Cover Crop Management",
+          "confidence": "estimate, needs local review"
+        },
+        "income": {
+          "base_rating": 2.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.2,
+          "source": "K-State Farm Management Cover Crop Economics",
+          "confidence": "estimate, needs local review"
+        },
+        "drought": {
+          "base_rating": 2.0,
+          "adjustment_a": 1.04,
+          "weight_w": 0.1,
+          "effective_contribution": 0.208,
+          "source": "Western Kansas Cover Crop Water Use Trials",
+          "confidence": "estimate, needs local review"
+        }
+      }
+    },
+    {
+      "strategy": "Wheat\u2013sorghum\u2013fallow",
+      "id": "wheat_sorghum_fallow",
+      "is_existing": false,
+      "score": 3.25,
+      "why_suggested": "Shortens the vulnerable summer bare-fallow window and introduces a heat-tolerant C4 grain crop to capture late-summer radiation and stabilize farm income.",
+      "evidence": [
+        {
+          "signal": "Sorghum vegetative canopy occupies July\u2013September, eliminating the post-wheat NDVI bare-field dip below 0.20",
+          "source": "MODIS MOD13Q1 (250m)",
+          "is_proxy": true
+        },
+        {
+          "signal": "C4 grain sorghum maintains photosynthetic efficiency during the 33.9 extreme heat days (Tmax >= 35\u00b0C)",
+          "source": "NASA POWER Daily",
+          "is_proxy": false
+        },
+        {
+          "signal": "Long dry spells (65 days maximum) handled via sorghum's waxy leaf cuticle and drought-induced dormancy",
+          "source": "NASA POWER Daily Precipitation",
+          "is_proxy": false
+        }
+      ],
+      "benefits": [
+        "Durable, erect stalk residue provides strong armor against spring wind erosion",
+        "Breaks monoculture winter annual grassy weed cycles (cheatgrass, jointed goatgrass)",
+        "Produces 2 grain crops in 3 years with modest additional capital requirements"
+      ],
+      "information_gaps": [
+        "Local elevator milo basis and regional delivery distance not accounted for",
+        "Subsoil moisture depletion impact on subsequent wheat stand emergence requires local probing"
+      ],
+      "risks_needing_local_review": [
+        "Stored root-zone moisture must be at least 3 to 4 feet deep at June planting",
+        "Herbicide carryover restrictions between winter wheat and summer sorghum"
+      ],
+      "confidence": {
+        "water": "high",
+        "cover": "high",
+        "wind_erosion": "high",
+        "income": "medium",
+        "drought": "high"
+      },
+      "criteria_breakdown": {
+        "water": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.2,
+          "effective_contribution": 0.63,
+          "source": "K-State Extension MF-2573",
+          "confidence": "estimate, needs local review"
+        },
+        "cover": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.15,
+          "effective_contribution": 0.472,
+          "source": "K-State Extension SRL-138",
+          "confidence": "estimate, needs local review"
+        },
+        "organic_matter": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "K-State Agronomy eUpdate 842",
+          "confidence": "estimate, needs local review"
+        },
+        "nitrogen": {
+          "base_rating": 1.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.05,
+          "effective_contribution": 0.05,
+          "source": "K-State Fertilizer Recommendations MF-2586",
+          "confidence": "estimate, needs local review"
+        },
+        "wind_erosion": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.08,
+          "weight_w": 0.2,
+          "effective_contribution": 0.648,
+          "source": "USDA NRCS Kansas Wind Erosion Tech Note 1",
+          "confidence": "estimate, needs local review"
+        },
+        "pest_break": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.1,
+          "effective_contribution": 0.42,
+          "source": "K-State Weed Management in Sorghum",
+          "confidence": "estimate, needs local review"
+        },
+        "income": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.4,
+          "source": "K-State Farm Management Guide MF-573",
+          "confidence": "estimate, needs local review"
+        },
+        "drought": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.1,
+          "weight_w": 0.1,
+          "effective_contribution": 0.33,
+          "source": "Colby Agricultural Research Center Dryland Trials",
+          "confidence": "estimate, needs local review"
+        }
+      }
+    },
+    {
+      "strategy": "Wheat\u2013sunflower\u2013fallow",
+      "id": "wheat_sunflower_fallow",
+      "is_existing": false,
+      "score": 3.08,
+      "why_suggested": "Utilizes deep-rooting sunflower to scavenge subsoil water and residual nitrogen below the wheat root zone, providing a high-value cash alternative.",
+      "evidence": [
+        {
+          "signal": "Deep taproot reaches subsoil moisture down to 6 feet during extended dry periods (max 65 days)",
+          "source": "NASA POWER Daily & USDA NRCS",
+          "is_proxy": false
+        },
+        {
+          "signal": "186 frost-free days easily accommodate 90-110 day confection or oilseed maturity varieties",
+          "source": "NASA POWER Minimum Temperature",
+          "is_proxy": false
+        }
+      ],
+      "benefits": [
+        "Excellent deep-profile nutrient scavenging and break of cereal diseases",
+        "High profit potential under favorable oilseed crushing contract pricing",
+        "Tolerant of high midsummer daytime temperatures"
+      ],
+      "information_gaps": [
+        "Regional processor contracting and logistics within 100 miles of Colby",
+        "High-resolution bird predation risk maps not integrated"
+      ],
+      "risks_needing_local_review": [
+        "Sunflower leaves fragile residue that breaks down rapidly, leaving soil bare by late winter",
+        "Heavy subsoil moisture extraction can dry out subsoil before subsequent wheat planting"
+      ],
+      "confidence": {
+        "water": "medium",
+        "cover": "medium",
+        "wind_erosion": "medium",
+        "income": "low",
+        "drought": "medium"
+      },
+      "criteria_breakdown": {
+        "water": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.2,
+          "effective_contribution": 0.63,
+          "source": "K-State Sunflower Production Handbook MF-2384",
+          "confidence": "estimate, needs local review"
+        },
+        "cover": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.15,
+          "effective_contribution": 0.45,
+          "source": "K-State Extension SRL-138",
+          "confidence": "estimate, needs local review"
+        },
+        "organic_matter": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "K-State Agronomy eUpdate 842",
+          "confidence": "estimate, needs local review"
+        },
+        "nitrogen": {
+          "base_rating": 1.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.05,
+          "effective_contribution": 0.05,
+          "source": "K-State Fertilizer Recommendations MF-2586",
+          "confidence": "estimate, needs local review"
+        },
+        "wind_erosion": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.2,
+          "effective_contribution": 0.6,
+          "source": "USDA NRCS Kansas Wind Erosion Tech Note 1",
+          "confidence": "estimate, needs local review"
+        },
+        "pest_break": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.1,
+          "effective_contribution": 0.42,
+          "source": "High Plains Sunflower Insect & Disease Guide",
+          "confidence": "estimate, needs local review"
+        },
+        "income": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "K-State Farm Management Guide MF-875",
+          "confidence": "estimate, needs local review"
+        },
+        "drought": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.1,
+          "weight_w": 0.1,
+          "effective_contribution": 0.33,
+          "source": "Colby Agricultural Research Center Dryland Trials",
+          "confidence": "estimate, needs local review"
+        }
+      }
+    },
+    {
+      "strategy": "Wheat\u2013fallow (existing)",
+      "id": "wheat_fallow",
+      "is_existing": true,
+      "score": 1.58,
+      "why_suggested": "Traditional baseline practice in Thomas County, relying on a 14-month fallow to accumulate subsoil moisture for winter wheat.",
+      "evidence": [
+        {
+          "signal": "NDVI remains below 0.20 for 6 months (Jan, Feb, Jul, Aug, Sep, Dec)",
+          "source": "MODIS MOD13Q1 (250m)",
+          "is_proxy": true
+        },
+        {
+          "signal": "Annual heat stress averages 33.9 days above 35\u00b0C during the bare summer fallow window",
+          "source": "NASA POWER Daily (2m Air Temp)",
+          "is_proxy": false
+        },
+        {
+          "signal": "Root-zone soil wetness averages 0.384 during fallow",
+          "source": "NASA POWER MERRA-2 (GWETROOT)",
+          "is_proxy": true
+        }
+      ],
+      "benefits": [
+        "Lowest equipment and operational input costs",
+        "Proven familiarity across Western Kansas wheat producers",
+        "Allows weed control via tillage or non-selective herbicides"
+      ],
+      "information_gaps": [
+        "Field-scale soil moisture retention efficiency is not measured by coarse satellite sensors",
+        "Impact of localized stubble height on boundary-layer evaporation is unmodeled"
+      ],
+      "risks_needing_local_review": [
+        "Severe wind erosion during dry, windy spring months (March\u2013May)",
+        "Precipitation storage efficiency during summer fallow is often under 20%",
+        "Low soil organic carbon accumulation over multi-year cycles"
+      ],
+      "confidence": {
+        "water": "medium",
+        "cover": "high",
+        "wind_erosion": "high",
+        "income": "medium",
+        "drought": "medium"
+      },
+      "criteria_breakdown": {
+        "water": {
+          "base_rating": 2.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.2,
+          "effective_contribution": 0.4,
+          "source": "K-State Extension MF-2573",
+          "confidence": "estimate, needs local review"
+        },
+        "cover": {
+          "base_rating": 1.0,
+          "adjustment_a": 0.75,
+          "weight_w": 0.15,
+          "effective_contribution": 0.112,
+          "source": "K-State Extension SRL-138",
+          "confidence": "estimate, needs local review"
+        },
+        "organic_matter": {
+          "base_rating": 2.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.2,
+          "source": "K-State Agronomy eUpdate 842",
+          "confidence": "estimate, needs local review"
+        },
+        "nitrogen": {
+          "base_rating": 1.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.05,
+          "effective_contribution": 0.05,
+          "source": "K-State Fertilizer Recommendations MF-2586",
+          "confidence": "estimate, needs local review"
+        },
+        "wind_erosion": {
+          "base_rating": 1.0,
+          "adjustment_a": 0.75,
+          "weight_w": 0.2,
+          "effective_contribution": 0.15,
+          "source": "USDA NRCS Kansas Wind Erosion Tech Note 1",
+          "confidence": "estimate, needs local review"
+        },
+        "pest_break": {
+          "base_rating": 2.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.2,
+          "source": "K-State Plant Pathology Wheat Disease Guide",
+          "confidence": "estimate, needs local review"
+        },
+        "income": {
+          "base_rating": 3.0,
+          "adjustment_a": 0.88,
+          "weight_w": 0.1,
+          "effective_contribution": 0.264,
+          "source": "K-State Farm Management Guide MF-572",
+          "confidence": "estimate, needs local review"
+        },
+        "drought": {
+          "base_rating": 2.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.2,
+          "source": "Colby Agricultural Research Center Dryland Trials",
+          "confidence": "estimate, needs local review"
+        }
+      }
+    }
+  ],
+  "Finney": [
+    {
+      "strategy": "Corn\u2013wheat\u2013sorghum",
+      "id": "corn_wheat_sorghum",
+      "is_existing": false,
+      "score": 3.92,
+      "why_suggested": "A 3-year limited-irrigation rotation that allocates groundwater strategically to corn while letting drought-hardy wheat and sorghum thrive on partial irrigation.",
+      "evidence": [
+        {
+          "signal": "Reduces seasonal pumping volume by ~30%, preserving groundwater buffer for critical heat days (42.3 days >= 35\u00b0C)",
+          "source": "NASA POWER Daily & K-State Irrigation Trials",
+          "is_proxy": false
+        },
+        {
+          "signal": "Wheat and sorghum stagger vegetative peaks across May and August, eliminating midsummer well strain",
+          "source": "MODIS MOD13Q1 Climatology",
+          "is_proxy": true
+        }
+      ],
+      "benefits": [
+        "Saves 25% to 35% of total irrigation water, extending well life and complying with LEMA caps",
+        "Continuous heavy residue from sorghum and wheat protects soil armor year-round",
+        "Spreads labor, planting, and harvesting across spring, summer, and autumn"
+      ],
+      "information_gaps": [
+        "Transitioning pivot nozzles from full corn capacity to variable-rate split application",
+        "Local feedlot and elevator pricing spreads between corn and sorghum"
+      ],
+      "risks_needing_local_review": [
+        "Requires careful pivot management to split water across different crops under one circle",
+        "Lower gross revenue per acre compared to bumper corn crops in wet years"
+      ],
+      "confidence": {
+        "water": "high",
+        "cover": "high",
+        "wind_erosion": "high",
+        "income": "medium",
+        "drought": "high"
+      },
+      "criteria_breakdown": {
+        "water": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.1,
+          "weight_w": 0.25,
+          "effective_contribution": 1.1,
+          "source": "K-State Limited Irrigation Cropping Systems MF-2895",
+          "confidence": "estimate, needs local review"
+        },
+        "cover": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.1,
+          "effective_contribution": 0.42,
+          "source": "K-State Extension SRL-138",
+          "confidence": "estimate, needs local review"
+        },
+        "organic_matter": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.15,
+          "effective_contribution": 0.6,
+          "source": "K-State Long-Term Tillage and Rotation Study",
+          "confidence": "estimate, needs local review"
+        },
+        "nitrogen": {
+          "base_rating": 1.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.1,
+          "source": "K-State Fertilizer Recommendations MF-2586",
+          "confidence": "estimate, needs local review"
+        },
+        "wind_erosion": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.08,
+          "weight_w": 0.1,
+          "effective_contribution": 0.432,
+          "source": "USDA NRCS High Residue Conservation Systems",
+          "confidence": "estimate, needs local review"
+        },
+        "pest_break": {
+          "base_rating": 5.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.1,
+          "effective_contribution": 0.525,
+          "source": "K-State Multi-Crop Weed and Pest Management Guide",
+          "confidence": "estimate, needs local review"
+        },
+        "income": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "K-State Farm Management Crop Comparison Budget MF-2166",
+          "confidence": "estimate, needs local review"
+        },
+        "drought": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.1,
+          "weight_w": 0.1,
+          "effective_contribution": 0.44,
+          "source": "Garden City Research-Extension Center Irrigation Trials",
+          "confidence": "estimate, needs local review"
+        }
+      }
+    },
+    {
+      "strategy": "Corn\u2013soybean",
+      "id": "corn_soybean",
+      "is_existing": false,
+      "score": 2.62,
+      "why_suggested": "Rotates irrigated corn with a legume to reduce peak seasonal pumping overlap, supply biological nitrogen, and break corn rootworm cycles.",
+      "evidence": [
+        {
+          "signal": "Soybean peak water demand shifts timing relative to corn, moderating peak well discharge during heat waves (42.3 days >35\u00b0C)",
+          "source": "NASA POWER Daily Temperature",
+          "is_proxy": false
+        },
+        {
+          "signal": "201 frost-free days provide ample window for Group 3 and Group 4 soybean maturities",
+          "source": "NASA POWER Minimum Temperature",
+          "is_proxy": false
+        }
+      ],
+      "benefits": [
+        "Biological nitrogen fixation provides 30 to 45 lbs N/acre credit to the subsequent corn crop",
+        "Completely breaks Western Corn Rootworm larval feeding cycle",
+        "Diversifies commodity price risk between feed grain and oilseeds"
+      ],
+      "information_gaps": [
+        "Regional iron deficiency chlorosis (IDC) risk on high-pH caliche soils requires local soil testing",
+        "Varietal tolerance to spider mites in hot, dry High Plains late summers"
+      ],
+      "risks_needing_local_review": [
+        "Soybean residue breaks down rapidly after harvest, leaving soil vulnerable to winter/spring wind erosion",
+        "Soybeans are highly sensitive to late-summer heat and moisture stress during pod fill"
+      ],
+      "confidence": {
+        "water": "medium",
+        "cover": "medium",
+        "wind_erosion": "medium",
+        "income": "medium",
+        "drought": "medium"
+      },
+      "criteria_breakdown": {
+        "water": {
+          "base_rating": 2.0,
+          "adjustment_a": 0.78,
+          "weight_w": 0.25,
+          "effective_contribution": 0.39,
+          "source": "K-State Soybean Production Handbook C-449",
+          "confidence": "estimate, needs local review"
+        },
+        "cover": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "K-State Extension SRL-138",
+          "confidence": "estimate, needs local review"
+        },
+        "organic_matter": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.15,
+          "effective_contribution": 0.45,
+          "source": "K-State Agronomy eUpdate 842",
+          "confidence": "estimate, needs local review"
+        },
+        "nitrogen": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "K-State Nitrogen Credit from Soybeans MF-2586",
+          "confidence": "estimate, needs local review"
+        },
+        "wind_erosion": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "USDA NRCS Kansas Residue Management Guide",
+          "confidence": "estimate, needs local review"
+        },
+        "pest_break": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.05,
+          "weight_w": 0.1,
+          "effective_contribution": 0.315,
+          "source": "K-State Crop Rotation Pest Break Study",
+          "confidence": "estimate, needs local review"
+        },
+        "income": {
+          "base_rating": 4.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.4,
+          "source": "K-State Farm Management Irrigated Soybean Budget MF-570",
+          "confidence": "estimate, needs local review"
+        },
+        "drought": {
+          "base_rating": 2.0,
+          "adjustment_a": 0.83,
+          "weight_w": 0.1,
+          "effective_contribution": 0.166,
+          "source": "Garden City Research-Extension Center Irrigation Trials",
+          "confidence": "estimate, needs local review"
+        }
+      }
+    },
+    {
+      "strategy": "Continuous irrigated corn (existing)",
+      "id": "continuous_irrigated_corn",
+      "is_existing": true,
+      "score": 1.95,
+      "why_suggested": "Existing intensive management system maximizing short-term grain volume under center-pivot irrigation, but facing severe Ogallala depletion.",
+      "evidence": [
+        {
+          "signal": "Peak irrigation occurs during July\u2013August with 42.3 days above 35\u00b0C driving atmospheric evaporative demand to maximum",
+          "source": "NASA POWER Daily Maximum Temperature",
+          "is_proxy": false
+        },
+        {
+          "signal": "Rainfall variability (CV = 0.24) leaves crop entirely dependent on unsustainable groundwater pumping",
+          "source": "NASA POWER Daily Precipitation",
+          "is_proxy": false
+        }
+      ],
+      "benefits": [
+        "High gross revenue potential in years with favorable grain market prices",
+        "Heavy corn stover residue protects against winter wind erosion",
+        "Established local grain delivery infrastructure, feedlots, and ethanol plants"
+      ],
+      "information_gaps": [
+        "Local well pumping capacity (gallons per minute) varies field-by-field and is unmeasured by satellites",
+        "Exact LEMA multi-year allocation balance must be confirmed with Groundwater Management District"
+      ],
+      "risks_needing_local_review": [
+        "Ogallala aquifer decline and impending legal water pumping limits under GMD/LEMA rules",
+        "Escalating energy pumping costs with deeper well lifts",
+        "Severe corn rootworm, spider mite, and goss's wilt pressure in continuous monoculture"
+      ],
+      "confidence": {
+        "water": "high",
+        "cover": "high",
+        "wind_erosion": "high",
+        "income": "high",
+        "drought": "medium"
+      },
+      "criteria_breakdown": {
+        "water": {
+          "base_rating": 1.0,
+          "adjustment_a": 0.75,
+          "weight_w": 0.25,
+          "effective_contribution": 0.188,
+          "source": "K-State Corn Production Handbook C-560",
+          "confidence": "estimate, needs local review"
+        },
+        "cover": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "K-State Extension SRL-138",
+          "confidence": "estimate, needs local review"
+        },
+        "organic_matter": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.15,
+          "effective_contribution": 0.45,
+          "source": "K-State Agronomy eUpdate 842",
+          "confidence": "estimate, needs local review"
+        },
+        "nitrogen": {
+          "base_rating": 1.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.1,
+          "source": "K-State Fertilizer Recommendations MF-2586",
+          "confidence": "estimate, needs local review"
+        },
+        "wind_erosion": {
+          "base_rating": 3.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.3,
+          "source": "USDA NRCS Kansas Residue Management Guide",
+          "confidence": "estimate, needs local review"
+        },
+        "pest_break": {
+          "base_rating": 1.0,
+          "adjustment_a": 1.0,
+          "weight_w": 0.1,
+          "effective_contribution": 0.1,
+          "source": "K-State Corn Rootworm and Spider Mite Alert",
+          "confidence": "estimate, needs local review"
+        },
+        "income": {
+          "base_rating": 4.0,
+          "adjustment_a": 0.88,
+          "weight_w": 0.1,
+          "effective_contribution": 0.352,
+          "source": "K-State Farm Management Irrigated Corn Budget MF-578",
+          "confidence": "estimate, needs local review"
+        },
+        "drought": {
+          "base_rating": 2.0,
+          "adjustment_a": 0.8,
+          "weight_w": 0.1,
+          "effective_contribution": 0.16,
+          "source": "Garden City Research-Extension Center Irrigation Trials",
+          "confidence": "estimate, needs local review"
+        }
+      }
+    }
+  ]
+}

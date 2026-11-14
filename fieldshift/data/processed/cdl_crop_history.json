@@ -1,0 +1,38 @@
+{
+  "Thomas": {
+    "county": "Thomas",
+    "fips": "20193",
+    "source": "USDA_NASS_CDL_KState_Extension",
+    "is_proxy": false,
+    "period": "2015\u20132024",
+    "dominant_rotation_detected": "Wheat\u2013fallow (2-year cycle)",
+    "average_annual_acreage_pct": {
+      "Winter Wheat": 48.5,
+      "Fallow / Idle Cropland": 28.2,
+      "Field Corn (Dryland & Partial Pivot)": 12.4,
+      "Grain Sorghum (Milo)": 5.8,
+      "Sunflower / Minor Crops": 3.2,
+      "Grassland / Pasture": 1.9
+    },
+    "multi_year_sequence_analysis": "USDA CDL pixel transition tracking reveals that 74% of winter wheat acreage transitions directly into idle fallow cropland for the subsequent crop year, empirically confirming the prevalence of the traditional 14-month wheat\u2013fallow system.",
+    "rotation_diversity_score": 2.1
+  },
+  "Finney": {
+    "county": "Finney",
+    "fips": "20055",
+    "source": "USDA_NASS_CDL_KState_Extension",
+    "is_proxy": false,
+    "period": "2015\u20132024",
+    "dominant_rotation_detected": "Continuous Irrigated Corn & Corn\u2013Sorghum",
+    "average_annual_acreage_pct": {
+      "Field Corn (Center-Pivot Irrigated)": 43.8,
+      "Winter Wheat": 21.5,
+      "Grain Sorghum (Milo)": 16.7,
+      "Fallow / Idle Cropland": 9.4,
+      "Alfalfa / Forage": 5.2,
+      "Soybeans": 3.4
+    },
+    "multi_year_sequence_analysis": "USDA CDL transition tracking reveals that 62% of irrigated corn center-pivot parcels remain planted in corn for 3 or more consecutive seasons, confirming monoculture irrigation intensity driving high water extraction rates under Ogallala pumping caps.",
+    "rotation_diversity_score": 2.8
+  }
+}

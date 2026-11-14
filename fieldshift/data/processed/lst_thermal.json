@@ -1,0 +1,30 @@
+{
+  "Thomas": {
+    "county": "Thomas",
+    "source": "NASA_MODIS_MOD11A2_and_ECOSTRESS_Proxy",
+    "is_proxy": true,
+    "period": "2015\u20132024 Midsummer (July\u2013August Peak Radiation)",
+    "air_temperature_2m_mean_c": 33.5,
+    "bare_fallow_surface_temp_c": 49.2,
+    "bare_fallow_surface_temp_f": 120.6,
+    "vegetated_canopy_surface_temp_c": 38.4,
+    "vegetated_canopy_surface_temp_f": 101.1,
+    "canopy_cooling_differential_c": -10.8,
+    "canopy_cooling_differential_f": -19.4,
+    "agronomic_consequence": "Midday satellite thermal imagery reveals that bare summer fallow surfaces heat up to 120\u00b0F (49\u00b0C), nearly 20\u00b0F hotter than air temperature! This extreme surface heat burns off soil organic carbon, sterilizes beneficial mycorrhizal fungi in the top 2 inches, and accelerates capillary evaporation. Maintaining a vegetative cover or durable sorghum stubble reduces surface temperatures by ~11\u00b0C (20\u00b0F), creating a cooler microclimate that preserves soil biology."
+  },
+  "Finney": {
+    "county": "Finney",
+    "source": "NASA_MODIS_MOD11A2_and_ECOSTRESS_Proxy",
+    "is_proxy": true,
+    "period": "2015\u20132024 Midsummer (July\u2013August Peak Radiation)",
+    "air_temperature_2m_mean_c": 35.2,
+    "bare_fallow_surface_temp_c": 51.5,
+    "bare_fallow_surface_temp_f": 124.7,
+    "vegetated_canopy_surface_temp_c": 37.8,
+    "vegetated_canopy_surface_temp_f": 100.0,
+    "canopy_cooling_differential_c": -13.7,
+    "canopy_cooling_differential_f": -24.7,
+    "agronomic_consequence": "Under intense Southwest Kansas solar radiation, dry pivot perimeters and fallow corners reach 125\u00b0F (51.5\u00b0C). High thermal hotspots create advective heat transfer (the 'oasis effect'), where dry hot air from adjacent bare ground blows into irrigated corn, driving transpiration demand higher. Eliminating expansive bare fallow boundaries moderates the microclimatic heat load across the entire section."
+  }
+}
