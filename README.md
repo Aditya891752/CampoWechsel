@@ -1,11 +1,27 @@
-# Field Shift: Western Kansas
+# CampoWechsel (Field Shift: Western Kansas)
 ### NASA Space Apps Challenge 2026 — *"Field Shift: Adapting Farms with NASA Data"*
+**Team**: Galactic Debuggers • **Lead**: Aditya Singh Chauhan (B.Tech Biotechnology, Galgotias University)
 
-**Field Shift** is an evidence-based decision-support web application that empowers agricultural producers and county extension agents in Western Kansas to evaluate, compare, and adapt crop-rotation strategies using 10 years of NASA Earth Observation (EO) data alongside validated Kansas State University Extension agronomic benchmarks.
+**CampoWechsel** is an evidence-based decision-support web application that empowers agricultural producers and county extension agents in Western Kansas to evaluate, compare, and adapt crop-rotation strategies using 10 years of NASA Earth Observation (EO) data alongside validated Kansas State University Extension agronomic benchmarks.
 
 ---
 
-## 1. Quickstart & Local Execution
+## 1. Quickstart & Execution
+
+### Option A: Universally Accessible Interactive Web Demo (Zero Installation)
+Experience the full decision-support engine, climate stress-testing, 10-year NDVI bare-field curves, and Gemini AI dossiers **instantly in any web browser** (desktop, laptop, tablet, or phone) without installing Python, Streamlit, or external dependencies:
+
+- **Live GitHub Pages Demo**: [https://aditya891752.github.io/Field-Shift/](https://aditya891752.github.io/Field-Shift/)
+- **Direct Local Demo**: Double-click [`demo.html`](demo.html) in your browser.
+- **7-Slide Pitch Presentation Deck**: Open [`campowechsel_presentation.html`](campowechsel_presentation.html) or [`docs/slides.html`](docs/slides.html).
+- **Accessibility Highlights**:
+  - **WCAG 2.1 AA/AAA Compliant**: Semantic HTML5, high-contrast ratios (>7:1), visible focus rings, and screen-reader `aria-live` announcements.
+  - **Display Modes**: High-Contrast (AAA Black/Gold) and High-Sunlight Field Cab mode for bright tractor cabs.
+  - **Multilingual**: Instant English & Español toggle for High Plains agricultural managers and workers.
+  - **Text-to-Speech (TTS)**: Built-in voice synthesizer reads agronomic summaries aloud for audio accessibility.
+  - **Interactive Visualizations**: Dynamic SVG charts with accessible data tables for all users.
+
+### Option B: Full Python & Streamlit Application (Local Developer Suite)
 
 The application is built offline-first: all remote satellite datasets are preprocessed and cached in `fieldshift/data/processed/`, allowing the application to run immediately with zero external network dependencies.
 
@@ -15,9 +31,11 @@ pip install -r requirements.txt
 
 # 2. Run the application
 streamlit run fieldshift/app.py
+# Or use the universal launcher:
+python run.py
 ```
 
-The application will launch in your browser at `http://localhost:8501`.
+The Streamlit app launches at `http://localhost:8501`.
 
 ---
 

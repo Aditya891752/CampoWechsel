@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Field Shift: Western Kansas — Universally Accessible Decision-Support Application powered by 10 Years of NASA Earth Observation Data and Kansas State University Extension agronomic benchmarks.">
+  <title>Field Shift: Western Kansas — NASA Earth Observation Agronomic Decision Support</title>
+  <style>
+    /* -------------------------------------------------------------
+       ACCESSIBILITY FIRST & DESIGN SYSTEM
+       WCAG 2.1 AA / AAA Compliant
+    ------------------------------------------------------------- */
+    :root {
+      --font-scale: 1rem;
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-alt: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-inverse: #ffffff;
+      --border-color: #cbd5e1;
+      --border-color-subtle: #e2e8f0;
+      
+      --primary: #15803d; /* Forest Green, WCAG AAA against white */
+      --primary-dark: #14532d;
+      --primary-light: #dcfce7;
+      --primary-text: #14532d;
+      
+      --accent-water: #0369a1; /* Ocean Blue, 5.8:1 contrast */
+      --accent-water-light: #e0f2fe;
+      --accent-soil: #b45309; /* Warm Amber, 4.6:1 contrast */
+      --accent-soil-light: #fef3c7;
+      --accent-alert: #b91c1c; /* Crimson, 5.9:1 contrast */
+      --accent-alert-light: #fee2e2;
+
+      --focus-ring: #0284c7;
+      --focus-ring-outline: 3px solid var(--focus-ring);
+      --focus-offset: 3px;
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --radius: 8px;
+      --transition: all 0.2s ease-in-out;
+    }
+
+    /* High Contrast Dark Mode (WCAG AAA) */
+    body.theme-high-contrast {
+      --bg-page: #000000;
+      --bg-surface: #121212;
+      --bg-surface-alt: #222222;
+      --text-main: #ffffff;
+      --text-muted: #e2e8f0;
+      --text-inverse: #000000;
+      --border-color: #facc15; /* Bright yellow border */
+      --border-color-subtle: #a1a1aa;
+      --primary: #4ade80;
+      --primary-dark: #86efac;
+      --primary-light: #064e3b;
+      --primary-text: #ffffff;
+      --accent-water: #38bdf8;
+      --accent-water-light: #082f49;
+      --accent-soil: #fde047;
+      --accent-soil-light: #451a03;
+      --accent-alert: #f87171;
+      --accent-alert-light: #450a0a;
+      --focus-ring: #fde047;
+    }
+
+    /* Outdoor High-Sunlight Field Mode (Maximum Luminance for Tractor Cabs) */
+    body.theme-high-sunlight {
+      --bg-page: #ffffff;
+      --bg-surface: #ffffff;
+      --bg-surface-alt: #f4f4f5;
+      --text-main: #000000;
+      --text-muted: #18181b;
+      --border-color: #000000;
+      --border-color-subtle: #27272a;
+      --primary: #000000;
+      --primary-dark: #000000;
+      --primary-light: #e4e4e7;
+      --primary-text: #000000;
+      --accent-water: #000000;
+      --accent-water-light: #e4e4e7;
+      --accent-soil: #000000;
+      --accent-soil-light: #e4e4e7;
+      --accent-alert: #000000;
+      --accent-alert-light: #e4e4e7;
+      --focus-ring: #000000;
+    }
+
+    /* Font size scaling */
+    body.font-lg { --font-scale: 1.15rem; }
+    body.font-xl { --font-scale: 1.3rem; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: var(--font-scale);
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Skip Link for Keyboard / Screen Reader Navigation */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: var(--primary-dark);
+      color: #ffffff;
+      padding: 10px 18px;
+      z-index: 9999;
+      font-weight: 700;
+      border-radius: var(--radius);
+      transition: top 0.2s ease;
+      text-decoration: underline;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: var(--focus-ring-outline);
+    }
+
+    /* Screen reader only utility class */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    /* Focus visible everywhere */
+    :focus-visible {
+      outline: var(--focus-ring-outline);
+      outline-offset: var(--focus-offset);
+    }
+
+    /* -------------------------------------------------------------
+       ACCESSIBILITY TOOLBAR & HEADER
+    ------------------------------------------------------------- */
+    .accessibility-bar {
+      background-color: var(--text-main);
+      color: var(--text-inverse);
+      padding: 8px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+    }
+    .a11y-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .a11y-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .a11y-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .a11y-btn:focus-visible {
+      outline: 2px solid #facc15;
+    }
+
+    header.site-header {
+      background-color: var(--bg-surface);
+      border-bottom: 2px solid var(--border-color);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+    .site-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .badge-nasa {
+      background-color: #0b3d91;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Persistent Advisory Notice */
+    .advisory-notice {
+      max-width: 1280px;
+      margin: 16px auto 0;
+      padding: 12px 18px;
+      background-color: var(--accent-water-light);
+      border-left: 5px solid var(--accent-water);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .advisory-notice strong {
+      color: var(--accent-water);
+    }
+
+    /* -------------------------------------------------------------
+       MAIN APP LAYOUT
+    ------------------------------------------------------------- */
+    main.main-content {
+      max-width: 1280px;
+      margin: 20px auto 40px;
+      padding: 0 16px;
+      width: 100%;
+      flex: 1;
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 980px) {
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       SIDEBAR & CONTROLS
+    ------------------------------------------------------------- */
+    .control-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    fieldset {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: var(--bg-surface-alt);
+    }
+    legend {
+      font-weight: 700;
+      padding: 0 8px;
+      color: var(--text-main);
+      font-size: 1rem;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+    label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .slider-val {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    input[type="range"] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--border-color);
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]:focus-visible {
+      outline: var(--focus-ring-outline);
+    }
+    .select-input {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: var(--radius);
+      border: 2px solid var(--border-color);
+      background-color: var(--bg-surface);
+      color: var(--text-main);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .preset-pills {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .pill-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+    .pill-btn:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+    }
+    .pill-btn:focus-visible {
+      outline: var(--focus-ring-outline);
+    }
+
+    /* -------------------------------------------------------------
+       CONTENT TABS & SECTIONS
+    ------------------------------------------------------------- */
+    .tab-nav {
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 4px solid transparent;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .tab-btn:hover {
+      color: var(--primary);
+      background-color: var(--bg-surface-alt);
+    }
+    .tab-btn[aria-selected="true"] {
+      color: var(--primary-dark);
+      border-bottom-color: var(--primary);
+      background-color: var(--bg-surface);
+    }
+    .tab-btn:focus-visible {
+      outline: var(--focus-ring-outline);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* -------------------------------------------------------------
+       CARDS & RECOMMENDATION ENGINE
+    ------------------------------------------------------------- */
+    .summary-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .summary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color-subtle);
+      padding-bottom: 12px;
+    }
+    .summary-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .strategy-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .strategy-card.rank-1 {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px -2px rgba(21, 128, 61, 0.15);
+    }
+    .strategy-card.baseline {
+      border-style: dashed;
+      background: var(--bg-surface-alt);
+    }
+    .strategy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .strategy-title-wrap {
+      flex: 1;
+    }
+    .rank-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .rank-tag.tag-1 {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+    .rank-tag.tag-other {
+      background-color: var(--text-muted);
+      color: #ffffff;
+    }
+    .rank-tag.tag-base {
+      background-color: var(--border-color);
+      color: var(--text-main);
+    }
+    .strategy-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .score-badge {
+      text-align: right;
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      min-width: 90px;
+    }
+    .score-num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1;
+    }
+    .score-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .evidence-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .evidence-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 14px;
+      background: var(--accent-water-light);
+      color: var(--accent-water);
+      border: 1px solid rgba(3, 105, 161, 0.3);
+    }
+    .benefit-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .benefit-item::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .risk-box {
+      margin-top: 12px;
+      background: var(--accent-soil-light);
+      border-left: 4px solid var(--accent-soil);
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    /* -------------------------------------------------------------
+       SIDE BY SIDE COMPARISON MATRIX
+    ------------------------------------------------------------- */
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      background: var(--bg-surface);
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    table.data-table th, table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color-subtle);
+    }
+    table.data-table th {
+      background: var(--bg-surface-alt);
+      font-weight: 700;
+      color: var(--text-main);
+      border-bottom: 2px solid var(--border-color);
+    }
+    table.data-table tr:hover {
+      background: var(--bg-surface-alt);
+    }
+    .metric-delta {
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 0.85rem;
+    }
+    .delta-good {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    .delta-neutral {
+      background: var(--bg-surface-alt);
+      color: var(--text-muted);
+    }
+
+    /* -------------------------------------------------------------
+       ACCESSIBLE INTERACTIVE SVG CHART (NDVI CLIMATOLOGY)
+    ------------------------------------------------------------- */
+    .chart-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .chart-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .chart-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chart-container {
+      width: 100%;
+      height: 320px;
+      position: relative;
+    }
+    svg.accessible-chart {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .chart-axis {
+      stroke: var(--border-color);
+      stroke-width: 1.5;
+    }
+    .chart-grid {
+      stroke: var(--border-color-subtle);
+      stroke-dasharray: 3 3;
+    }
+    .chart-text {
+      fill: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .ndvi-line {
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 3.5;
+    }
+    .ndvi-fill {
+      fill: var(--primary-light);
+      opacity: 0.45;
+    }
+    .bare-threshold-line {
+      stroke: var(--accent-alert);
+      stroke-width: 2;
+      stroke-dasharray: 4 4;
+    }
+    .bare-rect {
+      fill: var(--accent-alert-light);
+      opacity: 0.6;
+    }
+
+    /* -------------------------------------------------------------
+       INTERACTIVE 3x3 SPATIAL GRID MAP
+    ------------------------------------------------------------- */
+    .spatial-grid-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 840px) {
+      .spatial-grid-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+    .grid-3x3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      background: var(--bg-surface-alt);
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+    }
+    .grid-cell {
+      aspect-ratio: 1;
+      background: var(--bg-surface);
+      border: 2px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      text-align: left;
+    }
+    .grid-cell:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .grid-cell[aria-pressed="true"] {
+      border-color: var(--primary-dark);
+      background-color: var(--primary-light);
+      outline: var(--focus-ring-outline);
+    }
+    .cell-id {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+    .cell-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .cell-vuln {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 4px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .cell-vuln.wind {
+      background: var(--accent-soil-light);
+      color: var(--accent-soil);
+    }
+    .cell-vuln.heat {
+      background: var(--accent-alert-light);
+      color: var(--accent-alert);
+    }
+    .cell-vuln.water {
+      background: var(--accent-water-light);
+      color: var(--accent-water);
+    }
+
+    .dossier-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .dossier-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .dossier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: #ede9fe;
+      color: #6d28d9;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .dossier-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+
+    /* -------------------------------------------------------------
+       AUDIO & ACTION BUTTONS
+    ------------------------------------------------------------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-secondary {
+      background: var(--bg-surface-alt);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+    .btn-secondary:hover {
+      background: var(--border-color-subtle);
+    }
+    .btn-audio {
+      background: var(--accent-water);
+      color: #ffffff;
+    }
+    .btn-audio:hover {
+      background: #0284c7;
+    }
+
+    /* Print styles */
+    @media print {
+      .accessibility-bar, .tab-nav, .control-panel, .btn, .preset-pills, .skip-link {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 10pt !important;
+      }
+      .app-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .strategy-card, .chart-box, .summary-card {
+        page-break-inside: avoid;
+        border: 1px solid #000000 !important;
+        box-shadow: none !important;
+      }
+      .tab-panel {
+        display: block !important;
+      }
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 24px;
+      margin-top: auto;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- Skip link for keyboard navigation (WCAG 2.4.1) -->
+  <a href="#main-content" class="skip-link">Skip to main content (Saltar al contenido principal)</a>
+
+  <!-- Universally Accessible Toolbar -->
+  <aside class="accessibility-bar" aria-label="Accessibility settings and display options">
+    <div class="a11y-controls">
+      <span><strong>Display & Accessibility:</strong></span>
+      <button type="button" class="a11y-btn" id="btn-theme-default" onclick="setTheme('default')">Standard View</button>
+      <button type="button" class="a11y-btn" id="btn-theme-contrast" onclick="setTheme('high-contrast')">High Contrast (AAA)</button>
+      <button type="button" class="a11y-btn" id="btn-theme-sunlight" onclick="setTheme('high-sunlight')">High-Sunlight Cab Mode</button>
+      <button type="button" class="a11y-btn" id="btn-font-toggle" onclick="toggleFontSize()">Font Size: <span id="font-size-label">Normal</span></button>
+    </div>
+    <div class="a11y-controls">
+      <button type="button" class="a11y-btn" id="btn-lang-toggle" onclick="toggleLanguage()">Language: <span id="lang-label">English (Switch to Español)</span></button>
+      <button type="button" class="a11y-btn btn-audio" id="btn-read-aloud" onclick="readAloudSummary()">🔊 Listen to Summary</button>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <div class="brand-group">
+        <span class="brand-icon" aria-hidden="true">🌾</span>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h1 class="site-title">CampoWechsel</h1>
+            <span style="font-size: 0.78rem; background: rgba(3, 105, 161, 0.15); color: var(--accent-water); font-weight: 700; padding: 2px 6px; border-radius: 4px;">by Galactic Debuggers</span>
+          </div>
+          <p class="site-subtitle" id="txt-header-sub">Empirical Farm Adaptation Engine Powered by 10 Years of NASA Earth Observations</p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <span class="badge-nasa">NASA Space Apps Challenge 2026</span>
+        <a href="campowechsel_presentation.html" class="btn btn-primary" title="View 7-Slide Pitch Deck">
+          📊 7-Slide Pitch Deck
+        </a>
+        <button type="button" class="btn btn-secondary" onclick="window.print()" title="Print 1-Page Agronomic Briefing">
+          🖨️ Print Executive Report
+        </button>
+      </div>
+    </div>
+
+    <!-- Persistent Advisory Banner (NASA Space Apps Criterion) -->
+    <div class="advisory-notice" role="alert">
+      <span style="font-size: 1.3rem;" aria-hidden="true">ℹ️</span>
+      <div>
+        <strong>Advisory Notice (Aviso Agronómico):</strong>
+        <span id="txt-advisory-msg">
+          Field Shift augments, but does not replace, producer judgment, county extension consultations, or field-scale soil probes. All satellite observations represent 10-year climatological baselines (2015–2024).
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Screen Reader Announcer for Dynamic Sliders -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Main Content -->
+  <main id="main-content" class="main-content" role="main">
+    <div class="app-grid">
+      
+      <!-- =========================================================
+           LEFT CONTROL PANEL (SLIDERS, COUNTY & SCENARIO)
+      ========================================================= -->
+      <aside class="control-panel" aria-label="Agronomic and Climate Controls">
+        
+        <!-- County Selector -->
+        <div class="form-group">
+          <label for="county-select" id="lbl-county-select">
+            <strong>Select County Hub:</strong>
+          </label>
+          <select id="county-select" class="select-input" onchange="onCountyChange()">
+            <option value="Thomas" selected>Thomas County (Colby, KS) — Dryland Wheat</option>
+            <option value="Finney">Finney County (Garden City, KS) — Irrigated Corn</option>
+          </select>
+          <p id="county-desc" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+            Northwest Kansas dryland tableland facing severe summer fallow wind erosion.
+          </p>
+        </div>
+
+        <!-- 3 Farmer Priority Sliders -->
+        <fieldset>
+          <legend id="leg-priorities">Farmer Strategic Priorities (0–10)</legend>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;" id="txt-slider-desc">
+            Adjust sliders to personalize the empirical Multi-Criteria Decision Analysis (MCDA).
+          </p>
+
+          <div class="form-group">
+            <label for="slider-water">
+              <span id="lbl-water">💧 Save Water:</span>
+              <span class="slider-val" id="val-water">5</span>
+            </label>
+            <input type="range" id="slider-water" min="0" max="10" step="1" value="5" oninput="onSliderChange()">
+          </div>
+
+          <div class="form-group">
+            <label for="slider-soil">
+              <span id="lbl-soil">🛡️ Protect Soil (Wind & Cover):</span>
+              <span class="slider-val" id="val-soil">7</span>
+            </label>
+            <input type="range" id="slider-soil" min="0" max="10" step="1" value="7" oninput="onSliderChange()">
+          </div>
+
+          <div class="form-group">
+            <label for="slider-income">
+              <span id="lbl-income">💵 Earn Income & Net Margins:</span>
+              <span class="slider-val" id="val-income">5</span>
+            </label>
+            <input type="range" id="slider-income" min="0" max="10" step="1" value="5" oninput="onSliderChange()">
+          </div>
+
+          <div class="preset-pills">
+            <span style="font-size: 0.78rem; font-weight: 700; width: 100%;">Quick Presets:</span>
+            <button type="button" class="pill-btn" onclick="applyPreset(10, 4, 3)">Aquifer Saver</button>
+            <button type="button" class="pill-btn" onclick="applyPreset(4, 10, 3)">Soil Armorer</button>
+            <button type="button" class="pill-btn" onclick="applyPreset(3, 4, 10)">High Profit</button>
+            <button type="button" class="pill-btn" onclick="applyPreset(5, 5, 5)">Balanced</button>
+          </div>
+        </fieldset>
+
+        <!-- Climate Perturbation "What-If" Sliders -->
+        <fieldset>
+          <legend id="leg-climate">"What-If" Climate Stress-Testing</legend>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;" id="txt-climate-desc">
+            Simulate extreme climate shifts to test rotation robustness.
+          </p>
+
+          <div class="form-group">
+            <label for="slider-temp">
+              <span id="lbl-temp">🌡️ Temperature Shift (Δ°C):</span>
+              <span class="slider-val" id="val-temp">+0.0°C</span>
+            </label>
+            <input type="range" id="slider-temp" min="0" max="3" step="0.5" value="0" oninput="onSliderChange()">
+          </div>
+
+          <div class="form-group">
+            <label for="slider-rain">
+              <span id="lbl-rain">🌧️ Rainfall Shift (Δ%):</span>
+              <span class="slider-val" id="val-rain">0%</span>
+            </label>
+            <input type="range" id="slider-rain" min="-30" max="20" step="5" value="0" oninput="onSliderChange()">
+          </div>
+          <button type="button" class="pill-btn" style="width: 100%; text-align: center; margin-top: 6px;" onclick="resetClimate()">Reset Climate to 10-Yr Baseline</button>
+        </fieldset>
+
+        <!-- NASA Sensor Provenance Attribution Box -->
+        <div style="background: var(--bg-surface-alt); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 14px; font-size: 0.82rem;">
+          <strong style="color: var(--text-main); display: block; margin-bottom: 6px;">🛰️ Verified NASA Satellite Streams:</strong>
+          <ul style="padding-left: 18px; line-height: 1.5; color: var(--text-muted);">
+            <li><strong>MODIS MOD13Q1 (250m)</strong>: NDVI Bare Soil</li>
+            <li><strong>NASA POWER Daily</strong>: Extreme Heat & Solar</li>
+            <li><strong>SMAP / MERRA-2</strong>: Root-Zone Wetness</li>
+            <li><strong>GRACE-FO Mascons</strong>: Aquifer Loss</li>
+            <li><strong>SRTM 30m</strong>: Flat Slope Proof (&lt;1%)</li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- =========================================================
+           RIGHT MAIN INTERACTIVE SECTIONS (TABS)
+      ========================================================= -->
+      <section aria-label="Agronomic Evaluation and Analysis">
+        
+        <!-- Tab Navigation -->
+        <div class="tab-nav" role="tablist" aria-label="Analysis Perspectives">
+          <button type="button" class="tab-btn" role="tab" id="tab-recommendations" aria-selected="true" aria-controls="panel-recommendations" onclick="switchTab('recommendations')">
+            🏆 Ranked Rotations
+          </button>
+          <button type="button" class="tab-btn" role="tab" id="tab-matrix" aria-selected="false" aria-controls="panel-matrix" onclick="switchTab('matrix')">
+            ⚖️ Side-by-Side Matrix
+          </button>
+          <button type="button" class="tab-btn" role="tab" id="tab-ndvi" aria-selected="false" aria-controls="panel-ndvi" onclick="switchTab('ndvi')">
+            📈 10-Yr NDVI Bare-Field Curve
+          </button>
+          <button type="button" class="tab-btn" role="tab" id="tab-spatial" aria-selected="false" aria-controls="panel-spatial" onclick="switchTab('spatial')">
+            🗺️ 3×3 Geospatial Grid & AI
+          </button>
+        </div>
+
+        <!-- =======================================================
+             TAB 1: RANKED ROTATIONS
+        ======================================================= -->
+        <div id="panel-recommendations" class="tab-panel active" role="tabpanel" aria-labelledby="tab-recommendations">
+          
+          <!-- County Headline Summary -->
+          <div class="summary-card" id="county-summary-card">
+            <div class="summary-header">
+              <span class="summary-title" id="summary-card-title">Thomas County Agronomic Summary</span>
+              <span id="summary-card-stat" style="font-size: 0.9rem; font-weight: 700; color: var(--accent-water);">
+                4 Months Summer Bare Fallow Identified
+              </span>
+            </div>
+            <p id="summary-card-body" style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+              Under conventional Winter Wheat–Fallow, land sits idle from July harvest until fall planting next year. 10-year MODIS NDVI telemetry confirms prolonged bare soil (< 0.20), leaving Keith silt loam exposed to 30–50 mph spring winds. Transitioning to living cover armors topsoil and fixes atmospheric nitrogen.
+            </p>
+          </div>
+
+          <!-- Dynamic Ranked Strategy Cards List -->
+          <div id="strategy-cards-container" aria-live="polite">
+            <!-- Rendered by JavaScript -->
+          </div>
+
+        </div>
+
+        <!-- =======================================================
+             TAB 2: SIDE-BY-SIDE COMPARISON MATRIX
+        ======================================================= -->
+        <div id="panel-matrix" class="tab-panel" role="tabpanel" aria-labelledby="tab-matrix">
+          <div class="summary-card">
+            <h2 style="font-size: 1.25rem; margin-bottom: 8px;">Baseline vs. Top Recommended Alternative</h2>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+              Direct head-to-head comparison between current farming practice and the top-ranked NASA-supported rotation strategy.
+            </p>
+
+            <div class="comparison-table-wrapper">
+              <table class="data-table" id="comparison-table">
+                <caption class="sr-only">Agronomic and resource comparison between baseline and top recommendation</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Decision Metric</th>
+                    <th scope="col" id="col-baseline-name">Current Practice (Baseline)</th>
+                    <th scope="col" id="col-alt-name">Top Shift Strategy</th>
+                    <th scope="col">Net Advantage / Benefit</th>
+                  </tr>
+                </thead>
+                <tbody id="comparison-tbody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 10px;">
+              * Benchmarks established from Kansas State University Research and Extension publications (MF-2573, SRL-138, MF-2895, MF-578) and USGS Well records.
+            </div>
+          </div>
+        </div>
+
+        <!-- =======================================================
+             TAB 3: 10-YEAR NDVI BARE-FIELD CLIMATOLOGY
+        ======================================================= -->
+        <div id="panel-ndvi" class="tab-panel" role="tabpanel" aria-labelledby="tab-ndvi">
+          <div class="chart-box">
+            <div class="chart-header">
+              <div>
+                <h2 class="chart-title" id="ndvi-chart-title">MODIS 250m Monthly NDVI Climatology (2015–2024)</h2>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">
+                  Shaded red zone denotes bare topsoil vulnerable to wind detachment or evaporative loss.
+                </p>
+              </div>
+              <div class="chart-controls">
+                <label for="slider-ndvi-thresh" style="margin: 0; font-size: 0.85rem; font-weight: 600;">
+                  Bare Threshold (NDVI): <span id="val-ndvi-thresh" class="slider-val">0.20</span>
+                </label>
+                <input type="range" id="slider-ndvi-thresh" min="0.10" max="0.35" step="0.01" value="0.20" style="width: 130px;" oninput="onNdviThresholdChange()">
+              </div>
+            </div>
+
+            <!-- Accessible SVG Chart -->
+            <figure>
+              <div class="chart-container" id="svg-chart-wrapper">
+                <svg id="ndvi-svg" class="accessible-chart" viewBox="0 0 700 280" role="img" aria-labelledby="svg-chart-title svg-chart-desc">
+                  <title id="svg-chart-title">10-Year Monthly NDVI Climatology Curve</title>
+                  <desc id="svg-chart-desc">Line chart showing 12-month vegetation cycle and bare soil threshold shading.</desc>
+                  <!-- SVG elements rendered by JS -->
+                </svg>
+              </div>
+              <figcaption class="sr-only" id="svg-chart-caption">
+                Detailed 12-month NDVI trajectory from January to December.
+              </figcaption>
+            </figure>
+
+            <!-- Screen-reader accessible data table alternative for the chart -->
+            <details style="margin-top: 16px;">
+              <summary style="font-size: 0.88rem; font-weight: 700; cursor: pointer; color: var(--primary);">
+                📊 View Accessible Monthly NDVI Data Table (Tabular Format)
+              </summary>
+              <div class="comparison-table-wrapper" style="margin-top: 10px;">
+                <table class="data-table">
+                  <caption class="sr-only">Monthly NDVI Mean and Bare Ground Classification</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Month</th>
+                      <th scope="col">Mean NDVI</th>
+                      <th scope="col">Min NDVI</th>
+                      <th scope="col">Max NDVI</th>
+                      <th scope="col">Status at Current Threshold</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ndvi-table-tbody">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- =======================================================
+             TAB 4: 3x3 GEOSPATIAL GRID & AI DOSSIER
+        ======================================================= -->
+        <div id="panel-spatial" class="tab-panel" role="tabpanel" aria-labelledby="tab-spatial">
+          <div class="summary-card">
+            <h2 style="font-size: 1.25rem; margin-bottom: 8px;">County Anchor Hub: 3×3 Parcel Micro-Grid</h2>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+              Select any parcel tile in the 3×3 grid to inspect local satellite telemetry and read the <strong>Gemini Spatial AI Agronomist Dossier</strong>.
+            </p>
+
+            <div class="spatial-grid-wrap">
+              <!-- Grid Container -->
+              <div>
+                <div class="grid-3x3" id="cells-grid" role="group" aria-label="3 by 3 parcel selection grid">
+                  <!-- Populated by JS -->
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; text-align: center;">
+                  Use Tab or Click to select parcels. Coordinates verified via USGS & NASA SRTM.
+                </p>
+              </div>
+
+              <!-- AI Dossier View -->
+              <div class="dossier-panel" id="dossier-display" role="region" aria-live="polite">
+                <span class="dossier-badge">✨ Gemini Spatial AI Dossier</span>
+                <h3 class="dossier-title" id="dossier-title">Parcel Dossier Loading...</h3>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;" id="dossier-coords">
+                  Coordinates: --
+                </div>
+                <div class="dossier-text" id="dossier-summary">
+                  Select a grid cell on the left to read tailored agronomy recommendations.
+                </div>
+                <div class="dossier-text" id="dossier-advice" style="border-top: 1px solid var(--border-color-subtle); padding-top: 10px; font-weight: 500;">
+                  --
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div>
+        <strong>Field Shift: Western Kansas</strong> — NASA International Space Apps Challenge 2026.
+        <div>Data Sources: NASA LP DAAC (MODIS), NASA Langley (POWER), NASA JPL (SMAP/SRTM), USGS NWIS, Kansas State University Extension.</div>
+      </div>
+      <div>
+        <a href="#top" style="color: var(--primary); font-weight: 700; text-decoration: none;">↑ Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================================
+       JAVASCRIPT SCIENTIFIC ENGINE & ACCESSIBILITY LOGIC
+  ============================================================= -->
+  <script>
+    /* --- 1. DATA DEFINITIONS --- */
+    const COUNTIES = {
+      Thomas: {
+        name: "Thomas County",
+        seat: "Colby, KS",
+        system: "Dryland wheat–fallow",
+        fips: "20193",
+        elevation: "960 m",
+        desc: "Northwest Kansas dryland tableland facing severe summer fallow wind erosion.",
+        statMsg: "4 Consecutive Months Bare Topsoil in Summer",
+        summaryText: "Under conventional Winter Wheat–Fallow, land sits idle from July harvest until fall planting next year. 10-year MODIS NDVI telemetry confirms prolonged bare soil (< 0.20), leaving Keith silt loam exposed to 30–50 mph spring winds. Transitioning to living cover armors topsoil and fixes atmospheric nitrogen.",
+        baseHeatDays: 33.9,
+        baseRainMm: 498.0,
+        baseDrySpell: 65,
+        baseWetness: 0.384,
+        ndviClim: [
+          { m: "Jan", val: 0.183, min: 0.161, max: 0.224 },
+          { m: "Feb", val: 0.199, min: 0.175, max: 0.224 },
+          { m: "Mar", val: 0.275, min: 0.248, max: 0.305 },
+          { m: "Apr", val: 0.446, min: 0.424, max: 0.480 },
+          { m: "May", val: 0.588, min: 0.563, max: 0.609 },
+          { m: "Jun", val: 0.311, min: 0.259, max: 0.348 },
+          { m: "Jul", val: 0.120, min: 0.100, max: 0.183 },
+          { m: "Aug", val: 0.115, min: 0.100, max: 0.161 },
+          { m: "Sep", val: 0.182, min: 0.154, max: 0.207 },
+          { m: "Oct", val: 0.224, min: 0.198, max: 0.258 },
+          { m: "Nov", val: 0.202, min: 0.169, max: 0.228 },
+          { m: "Dec", val: 0.179, min: 0.158, max: 0.198 }
+        ],
+        strategies: [
+          {
+            id: "wheat_fallow",
+            name: "Wheat–Fallow (Current Practice)",
+            isExisting: true,
+            desc: "Traditional 2-year rotation with 1 crop and a 14-month summer fallow period.",
+            ratings: { water: 2, cover: 1, organic_matter: 2, nitrogen: 1, wind_erosion: 1, pest_break: 2, income: 3, drought: 2 },
+            benefits: ["Well-understood local practice", "Requires no new seed or planting equipment"],
+            risks: "Topsoil exposed to spring winds; high evaporative water waste."
+          },
+          {
+            id: "wheat_legume_cover",
+            name: "Wheat w/ Legume Cover Crop in Fallow",
+            isExisting: false,
+            desc: "Replaces vulnerable bare fallow with a living legume/brassica cover crop to build soil organic matter and fix biological nitrogen.",
+            ratings: { water: 2, cover: 5, organic_matter: 4, nitrogen: 4, wind_erosion: 4, pest_break: 3, income: 2, drought: 2 },
+            benefits: ["Superior living armor against High Plains wind erosion", "Biological nitrogen fixation (35–50 lbs/ac N credit)", "Eliminates midsummer soil heating by 19.4°F"],
+            risks: "Cover crop termination must be managed aggressively before cash crop moisture is depleted."
+          },
+          {
+            id: "wheat_sorghum_fallow",
+            name: "Wheat–Sorghum–Fallow",
+            isExisting: false,
+            desc: "3-year rotation with 2 crops (wheat then grain sorghum/milo) and 1 fallow period.",
+            ratings: { water: 3, cover: 3, organic_matter: 3, nitrogen: 1, wind_erosion: 3, pest_break: 4, income: 4, drought: 3 },
+            benefits: ["Introduces heat-tolerant C4 grain sorghum", "Produces durable winter crop stubble", "Diversifies farm revenue sources"],
+            risks: "Sorghum establishment requires warm soil temperatures in June."
+          },
+          {
+            id: "wheat_sunflower_fallow",
+            name: "Wheat–Sunflower–Fallow",
+            isExisting: false,
+            desc: "Deep-rooting oilseed rotation scavenging subsoil moisture and breaking grassy weed cycles.",
+            ratings: { water: 3, cover: 3, organic_matter: 3, nitrogen: 1, wind_erosion: 3, pest_break: 4, income: 3, drought: 3 },
+            benefits: ["Deep taproot scavenges deep soil water and residual N", "Excellent broadleaf pest break"],
+            risks: "Sunflower leaves low surface residue after harvest; winter wind protection required."
+          }
+        ],
+        comparisonMetrics: [
+          { name: "Continuous Ground Cover", base: "1 crop every 2 yrs (4 mo bare)", alt: "Continuous Living Cover / Residue", delta: "+8 mo Protected", good: true },
+          { name: "Wind Erosion Vulnerability", base: "High Detachment Risk (Bare Fallow)", alt: "Protected by Living Canopy & Roots", delta: "Severe Risk Removed", good: true },
+          { name: "Biological Nitrogen Credit", base: "0 lbs/acre (100% synthetic)", alt: "35–50 lbs/acre fixed biologically", delta: "+$22/acre N Credit", good: true },
+          { name: "Surface Soil Temperature", base: "Spikes to 120.6°F (49.2°C)", alt: "Cooled to ~101°F (Canopy shade)", delta: "19.4°F Cooler", good: true },
+          { name: "Equipment Compatibility", base: "Standard Drill & Combine", alt: "Standard No-Till Planter", delta: "Zero New Capital", good: true }
+        ],
+        cells: [
+          { id: "THO-NW", label: "Northwest Upland", lat: 39.46, lon: -101.12, ndvi: 0.59, heat: 33.0, moisture: 0.37, vuln: "Severe Wind Detachment", rec: "Wheat w/ Legume Cover", summary: "Parcel THO-NW sits on Keith silt loam tableland. MODIS detects peak NDVI of 0.59 followed by a critical 4-month bare fallow window. Pulverized topsoil is highly vulnerable to spring wind erosion.", advice: "Check subsoil moisture in late May; plant legume cover to shield soil before July heat." },
+          { id: "THO-N", label: "North Tableland", lat: 39.46, lon: -101.05, ndvi: 0.58, heat: 33.3, moisture: 0.38, vuln: "Severe Wind Detachment", rec: "Wheat w/ Legume Cover", summary: "High-exposure tableland with low vegetative residue. Vulnerable to 40+ mph wind gusts detaching fine silt particles.", advice: "Maintain standing wheat stubble and introduce legume cover to prevent particle detachment." },
+          { id: "THO-NE", label: "Northeast Transition", lat: 39.46, lon: -100.98, ndvi: 0.56, heat: 33.7, moisture: 0.39, vuln: "Severe Wind Detachment", rec: "Wheat w/ Legume Cover", summary: "Transitional silt loam with moderate organic matter. Exposed during prolonged summer bare fallow.", advice: "Eliminate open summer fallow; transition to cover-crop armor." },
+          { id: "THO-W", label: "West Flats", lat: 39.39, lon: -101.12, ndvi: 0.56, heat: 33.5, moisture: 0.37, vuln: "Moisture Deficit Fallow", rec: "Wheat–Sorghum–Fallow", summary: "Flat tableland experiencing rapid evaporative burn-off under summer heat.", advice: "Plant C4 grain sorghum to utilize summer heat and leave durable winter stubble." },
+          { id: "THO-C", label: "Colby Anchor Hub", lat: 39.39, lon: -101.05, ndvi: 0.55, heat: 33.9, moisture: 0.38, vuln: "Severe Wind Detachment", rec: "Wheat w/ Legume Cover", summary: "Central anchor hub at K-State Research Center. 10-year satellite data confirms persistent bare ground July–October.", advice: "Adopt multi-species cover mix to enhance rainfall infiltration." },
+          { id: "THO-E", label: "East Plains", lat: 39.39, lon: -100.98, ndvi: 0.54, heat: 34.2, moisture: 0.39, vuln: "Moisture Deficit Fallow", rec: "Wheat–Sorghum–Fallow", summary: "Eastern plains showing high summer solar irradiance suitable for C4 crops.", advice: "Rotate with grain sorghum to break weed cycles and preserve margins." },
+          { id: "THO-SW", label: "Southwest Terrace", lat: 39.32, lon: -101.12, ndvi: 0.53, heat: 34.5, moisture: 0.36, vuln: "Severe Wind Detachment", rec: "Wheat w/ Legume Cover", summary: "Slight terrace slope; spring wind detachment dominant risk factor.", advice: "Keep living roots in soil to stabilize Keith silt loam." },
+          { id: "THO-S", label: "South Flats", lat: 39.32, lon: -101.05, ndvi: 0.52, heat: 34.8, moisture: 0.37, vuln: "Moisture Deficit Fallow", rec: "Wheat–Sorghum–Fallow", summary: "Higher heat days recorded; sorghum provides strong drought buffer.", advice: "Utilize sorghum's waxy leaves and root architecture to scavenge water." },
+          { id: "THO-SE", label: "Southeast Valley", lat: 39.32, lon: -100.98, ndvi: 0.51, heat: 35.1, moisture: 0.38, vuln: "Severe Wind Detachment", rec: "Wheat w/ Legume Cover", summary: "Shallow depression parcel subject to micro-wind tunneling.", advice: "Maintain continuous vegetative cover to prevent soil stripping." }
+        ]
+      },
+      Finney: {
+        name: "Finney County",
+        seat: "Garden City, KS",
+        system: "Irrigated corn",
+        fips: "20055",
+        elevation: "865 m",
+        desc: "Southwest Kansas center-pivot irrigation hub facing severe Ogallala Aquifer depletion.",
+        statMsg: "97.3 ft Aquifer Drawdown Since 1990",
+        summaryText: "Intensive center-pivot pumping for continuous corn has triggered catastrophic groundwater mining. GRACE-FO gravimetry and USGS well telemetry confirm rapid water table decline. Shifting to limited-irrigation Corn–Wheat–Sorghum slashes water use by 42.5%, saving 23.1M gallons and $10,625 in energy pumping bills per pivot.",
+        baseHeatDays: 42.1,
+        baseRainMm: 462.0,
+        baseDrySpell: 52,
+        baseWetness: 0.334,
+        ndviClim: [
+          { m: "Jan", val: 0.169, min: 0.147, max: 0.198 },
+          { m: "Feb", val: 0.187, min: 0.145, max: 0.221 },
+          { m: "Mar", val: 0.189, min: 0.141, max: 0.221 },
+          { m: "Apr", val: 0.204, min: 0.178, max: 0.228 },
+          { m: "May", val: 0.253, min: 0.221, max: 0.288 },
+          { m: "Jun", val: 0.491, min: 0.426, max: 0.540 },
+          { m: "Jul", val: 0.702, min: 0.635, max: 0.760 },
+          { m: "Aug", val: 0.734, min: 0.654, max: 0.784 },
+          { m: "Sep", val: 0.558, min: 0.536, max: 0.577 },
+          { m: "Oct", val: 0.268, min: 0.251, max: 0.288 },
+          { m: "Nov", val: 0.179, min: 0.145, max: 0.207 },
+          { m: "Dec", val: 0.173, min: 0.142, max: 0.203 }
+        ],
+        strategies: [
+          {
+            id: "continuous_irrigated_corn",
+            name: "Continuous Irrigated Corn (Current Practice)",
+            isExisting: true,
+            desc: "Monoculture corn under center pivot. High water extraction driving Ogallala aquifer depletion.",
+            ratings: { water: 1, cover: 3, organic_matter: 3, nitrogen: 1, wind_erosion: 3, pest_break: 1, income: 4, drought: 2 },
+            benefits: ["Familiar production methods", "High gross revenue under peak market prices"],
+            risks: "Severe groundwater depletion; vulnerable to state LEMA pumping shutdown orders."
+          },
+          {
+            id: "corn_wheat_sorghum",
+            name: "Corn–Wheat–Sorghum",
+            isExisting: false,
+            desc: "3-year limited-irrigation rotation. Staggers pumping periods, cutting total water use by ~42.5% under LEMA limits.",
+            ratings: { water: 4, cover: 4, organic_matter: 4, nitrogen: 1, wind_erosion: 4, pest_break: 5, income: 3, drought: 4 },
+            benefits: ["Reduces groundwater pumping by 42.5%", "Saves 23,080,900 gallons per 125-ac pivot/yr", "Saves $10,625 in annual pumping energy costs", "Breaks corn rootworm and spider mite cycles"],
+            risks: "Gross corn acreage reduced; requires market contracts for sorghum."
+          },
+          {
+            id: "corn_soybean",
+            name: "Corn–Soybean",
+            isExisting: false,
+            desc: "Alternates corn with soybeans. Reduces peak midsummer well discharge and provides nitrogen credits.",
+            ratings: { water: 2, cover: 3, organic_matter: 3, nitrogen: 3, wind_erosion: 3, pest_break: 3, income: 4, drought: 2 },
+            benefits: ["Staggers seasonal pumping windows", "Provides biological N credit for following corn crop", "Interrupts continuous corn rootworm cycles"],
+            risks: "Soybeans still require significant late-summer irrigation during pod fill."
+          }
+        ],
+        comparisonMetrics: [
+          { name: "Annual Irrigation Pumping", base: "18–20 acre-inches (~61M gal/pivot)", alt: "10–12 acre-inches (~38M gal/pivot)", delta: "-42.5% Water (-23.1M gal)", good: true },
+          { name: "Annual Pumping Energy Bill", base: "$25,000 / 125-acre pivot", alt: "$14,375 / 125-acre pivot", delta: "Saves $10,625/yr", good: true },
+          { name: "LEMA Groundwater Compliance", base: "Exceeds 5-yr allocation limit", alt: "100% Compliant with LEMA Caps", delta: "Eliminates Fine Risk", good: true },
+          { name: "Pest & Rootworm Cycle", base: "High rootworm & spider mite pressure", alt: "Natural 3-crop multi-pest disruption", delta: "Pest Cycle Broken", good: true },
+          { name: "Drought Buffer Capacity", base: "Fails if well output drops in July", alt: "Sorghum survives extreme heat waves", delta: "Buffered Against Heat", good: true }
+        ],
+        cells: [
+          { id: "FIN-NW", label: "Northwest Upland", lat: 38.04, lon: -100.94, ndvi: 0.74, heat: 43.0, moisture: 0.33, vuln: "High Heat & Drawdown", rec: "Corn–Wheat–Sorghum", summary: "High-yield center pivot zone suffering severe water table drop. Pumping lift costs rising rapidly.", advice: "Adopt Corn-Wheat-Sorghum to cut pumping hours during July peak heat." },
+          { id: "FIN-N", label: "North Tableland", lat: 38.04, lon: -100.87, ndvi: 0.76, heat: 42.7, moisture: 0.33, vuln: "Severe Aquifer Drawdown", rec: "Corn–Wheat–Sorghum", summary: "Near USGS monitoring well showing 97 ft drop. Deep aquifer drawdown threatens future farm solvency.", advice: "Reduce center pivot speed; convert 1/3 of rotation to dryland wheat." },
+          { id: "FIN-NE", label: "Northeast Transition", lat: 38.04, lon: -100.80, ndvi: 0.77, heat: 42.4, moisture: 0.33, vuln: "Severe Aquifer Drawdown", rec: "Corn–Wheat–Sorghum", summary: "Deep pumping depth with high kilowatt-hour electrical consumption per acre-inch.", advice: "Rotate with low-water sorghum to protect power budget." },
+          { id: "FIN-W", label: "West Flats", lat: 37.97, lon: -100.94, ndvi: 0.75, heat: 42.3, moisture: 0.33, vuln: "High Heat & Drawdown", rec: "Corn–Wheat–Sorghum", summary: "Intense midsummer heat triggers corn silk desiccation when wells cannot keep up.", advice: "Plant drought-hardy grain sorghum to absorb midsummer heat." },
+          { id: "FIN-C", label: "Garden City Anchor Hub", lat: 37.97, lon: -100.87, ndvi: 0.78, heat: 42.1, moisture: 0.33, vuln: "Severe Aquifer Drawdown", rec: "Corn–Wheat–Sorghum", summary: "Regional agricultural hub. Water table decline is documented at >2.5 ft/year under continuous corn.", advice: "Shift to 3-year rotation to ensure 42.5% water savings." },
+          { id: "FIN-E", label: "East Plains", lat: 37.97, lon: -100.80, ndvi: 0.76, heat: 41.8, moisture: 0.34, vuln: "High Heat Stress", rec: "Corn–Soybean", summary: "Slightly higher soil moisture holding capacity; suitable for corn-soybean rotation.", advice: "Alternate soybeans to capture nitrogen credits and break rootworm monoculture." },
+          { id: "FIN-SW", label: "Southwest Terrace", lat: 37.90, lon: -100.94, ndvi: 0.72, heat: 42.5, moisture: 0.32, vuln: "Severe Aquifer Drawdown", rec: "Corn–Wheat–Sorghum", summary: "Sandy loam soils with high percolation losses under flood or excessive pivot irrigation.", advice: "Implement moisture sensors and shift away from continuous corn." },
+          { id: "FIN-S", label: "South Arkansas Valley", lat: 37.90, lon: -100.87, ndvi: 0.75, heat: 42.0, moisture: 0.34, vuln: "High Heat & Drawdown", rec: "Corn–Wheat–Sorghum", summary: "Alluvial valley zone facing strict local groundwater management district (GMD3) quotas.", advice: "Lock in water savings to avoid regulatory pumping shutdowns." },
+          { id: "FIN-SE", label: "Southeast Upland", lat: 37.90, lon: -100.80, ndvi: 0.74, heat: 41.6, moisture: 0.33, vuln: "Severe Aquifer Drawdown", rec: "Corn–Wheat–Sorghum", summary: "High energy cost per acre-foot pumped. Transitioning saves ~$10,625 per pivot annually.", advice: "Utilize sorghum contracts to maintain farm revenue while cutting pumping." }
+        ]
+      }
+    };
+
+    /* --- 2. MULTI-CRITERIA SCORING ENGINE --- */
+    function calculateMCDA(countyKey, pWater, pSoil, pIncome, deltaTemp, deltaRain, bareThresh) {
+      const county = COUNTIES[countyKey];
+      
+      // 1. Calculate weights from 3 sliders (sum to 1.0)
+      const wRaw = {
+        water: pWater * 0.65,
+        drought: pWater * 0.35,
+        cover: pSoil * 0.35,
+        wind_erosion: pSoil * 0.35,
+        organic_matter: pSoil * 0.30,
+        income: pIncome * 0.50,
+        pest_break: pIncome * 0.25,
+        nitrogen: pIncome * 0.25
+      };
+      let sumW = Object.values(wRaw).reduce((a, b) => a + b, 0);
+      if (sumW <= 0) sumW = 1.0;
+      const weights = {};
+      for (const k in wRaw) {
+        weights[k] = wRaw[k] / sumW;
+      }
+
+      // 2. Perturb indicators
+      const heatDays = Math.max(0, county.baseHeatDays + (deltaTemp * 7.5));
+      const rainMm = county.baseRainMm * (1.0 + (deltaRain / 100.0));
+      let drySpell = county.baseDrySpell;
+      if (deltaRain < 0) {
+        drySpell = Math.round(county.baseDrySpell * (1.0 + Math.abs(deltaRain) / 60.0));
+      } else {
+        drySpell = Math.max(20, Math.round(county.baseDrySpell * (1.0 - deltaRain / 100.0)));
+      }
+      const wetnessShift = (deltaRain / 100.0) * 0.08 - (deltaTemp * 0.02);
+      const wetness = Math.min(0.60, Math.max(0.15, county.baseWetness + wetnessShift));
+
+      // Calculate bare months count dynamically from threshold
+      let bareMonthsCount = 0;
+      county.ndviClim.forEach(item => {
+        if (item.val < bareThresh) bareMonthsCount++;
+      });
+
+      // 3. Score each strategy: S_j = sum(w_i * r_ij * a_ij)
+      const scored = county.strategies.map(strat => {
+        const stratName = strat.name.toLowerCase();
+        const adj = { water: 1.0, cover: 1.0, organic_matter: 1.0, nitrogen: 1.0, wind_erosion: 1.0, pest_break: 1.0, income: 1.0, drought: 1.0 };
+
+        // RULE 1: Bare-Field Duration
+        if (bareMonthsCount >= 4) {
+          if (stratName.includes("cover")) {
+            adj.cover = 1.10;
+            adj.wind_erosion = 1.10;
+            adj.organic_matter = 1.08;
+          } else if (stratName.includes("fallow") && strat.isExisting) {
+            adj.cover = Math.max(0.70, 0.85 - (bareMonthsCount - 3) * 0.05);
+            adj.wind_erosion = Math.max(0.70, 0.85 - (bareMonthsCount - 3) * 0.05);
+          } else if (stratName.includes("sorghum")) {
+            adj.cover = 1.05;
+            adj.wind_erosion = 1.08;
+          }
+        }
+
+        // RULE 2: Extreme Heat Stress
+        const heatFactor = Math.max(0, (heatDays - 25.0) / 25.0);
+        if (heatFactor > 0) {
+          if (strat.isExisting && stratName.includes("corn")) {
+            adj.drought = Math.max(0.70, 0.90 - heatFactor * 0.15);
+            adj.water = Math.max(0.70, 0.88 - heatFactor * 0.15);
+          } else if (stratName.includes("sorghum") || stratName.includes("sunflower")) {
+            adj.drought = Math.min(1.10, 1.02 + heatFactor * 0.08);
+            adj.water = Math.min(1.10, 1.01 + heatFactor * 0.07);
+          }
+        }
+
+        // RULE 3: Rainfall Variability & Dry Spells
+        const droughtFactor = Math.max(0, (drySpell - 30) / 50.0);
+        if (droughtFactor > 0) {
+          if (strat.isExisting) {
+            adj.income = Math.max(0.75, 0.95 - droughtFactor * 0.10);
+          } else {
+            adj.pest_break = 1.05;
+            adj.drought = Math.min(1.10, adj.drought * (1.0 + droughtFactor * 0.04));
+          }
+        }
+
+        // RULE 4: Soil Moisture Anomaly
+        if (wetness < 0.38) {
+          const deficit = (0.38 - wetness) / 0.15;
+          if (strat.isExisting && stratName.includes("corn")) {
+            adj.water = Math.max(0.70, 0.85 - deficit * 0.12);
+          } else if (stratName.includes("sorghum")) {
+            adj.water = Math.min(1.10, 1.02 + deficit * 0.08);
+          }
+        }
+
+        // Compute weighted composite score S_j
+        let score = 0;
+        for (const k in weights) {
+          const r = strat.ratings[k] || 1;
+          const a = Math.min(1.10, Math.max(0.70, adj[k]));
+          score += weights[k] * r * a;
+        }
+
+        return {
+          ...strat,
+          finalScore: parseFloat(score.toFixed(2)),
+          adjustments: adj
+        };
+      });
+
+      // Sort descending by score
+      scored.sort((a, b) => b.finalScore - a.finalScore);
+      return { scored, bareMonthsCount, heatDays, rainMm, drySpell, wetness };
+    }
+
+    /* --- 3. UI STATE & INTERACTION --- */
+    let currentCounty = "Thomas";
+    let selectedCellId = "THO-C";
+    let currentLang = "en";
+    let currentTheme = "default";
+    let currentFontSizeIdx = 0;
+    const fontSizes = ["", "font-lg", "font-xl"];
+    const fontLabels = ["Normal", "Large", "Extra Large"];
+
+    function getFormValues() {
+      return {
+        pWater: parseFloat(document.getElementById("slider-water").value),
+        pSoil: parseFloat(document.getElementById("slider-soil").value),
+        pIncome: parseFloat(document.getElementById("slider-income").value),
+        dTemp: parseFloat(document.getElementById("slider-temp").value),
+        dRain: parseFloat(document.getElementById("slider-rain").value),
+        bareThresh: parseFloat(document.getElementById("slider-ndvi-thresh").value)
+      };
+    }
+
+    function updateApp() {
+      const vals = getFormValues();
+      
+      // Update displayed slider numbers
+      document.getElementById("val-water").textContent = vals.pWater;
+      document.getElementById("val-soil").textContent = vals.pSoil;
+      document.getElementById("val-income").textContent = vals.pIncome;
+      document.getElementById("val-temp").textContent = (vals.dTemp >= 0 ? "+" : "") + vals.dTemp.toFixed(1) + "°C";
+      document.getElementById("val-rain").textContent = (vals.dRain >= 0 ? "+" : "") + vals.dRain + "%";
+      document.getElementById("val-ndvi-thresh").textContent = vals.bareThresh.toFixed(2);
+
+      // Run empirical MCDA
+      const result = calculateMCDA(currentCounty, vals.pWater, vals.pSoil, vals.pIncome, vals.dTemp, vals.dRain, vals.bareThresh);
+      const county = COUNTIES[currentCounty];
+
+      // Update Screen Reader Announcement
+      const topStrat = result.scored[0];
+      const srText = `Updated calculations for ${county.name}. Top recommended strategy is ${topStrat.name} with score ${topStrat.finalScore} out of 5.0. Bare soil detected for ${result.bareMonthsCount} months.`;
+      document.getElementById("sr-announcer").textContent = srText;
+
+      // Update County Summary Card
+      document.getElementById("summary-card-title").textContent = county.name + " " + (currentLang === "en" ? "Agronomic Summary" : "Resumen Agronómico");
+      document.getElementById("summary-card-stat").textContent = result.bareMonthsCount + " " + (currentLang === "en" ? "Months Bare Ground Detected" : "Meses de Suelo Desnudo Detectados");
+      document.getElementById("summary-card-body").textContent = county.summaryText;
+
+      // Render Ranked Cards
+      renderStrategyCards(result.scored);
+
+      // Render Comparison Table
+      renderComparisonTable(county, result.scored);
+
+      // Render NDVI SVG Chart
+      renderNdviChart(county, vals.bareThresh);
+
+      // Render Spatial Grid
+      renderSpatialGrid(county);
+    }
+
+    function renderStrategyCards(strategies) {
+      const container = document.getElementById("strategy-cards-container");
+      container.innerHTML = "";
+
+      strategies.forEach((strat, index) => {
+        const isTop = (index === 0);
+        const card = document.createElement("article");
+        card.className = "strategy-card " + (isTop ? "rank-1" : (strat.isExisting ? "baseline" : ""));
+        card.setAttribute("aria-labelledby", "strat-title-" + strat.id);
+
+        let tagClass = isTop ? "tag-1" : (strat.isExisting ? "tag-base" : "tag-other");
+        let tagText = isTop ? "★ #1 Recommended Strategy" : (strat.isExisting ? "Current Practice Baseline" : `#${index + 1} Alternative Strategy`);
+        if (currentLang === "es") {
+          tagText = isTop ? "★ #1 Estrategia Recomendada" : (strat.isExisting ? "Línea Base Actual" : `#${index + 1} Estrategia Alternativa`);
+        }
+
+        const benefitsHtml = strat.benefits.map(b => `<li class="benefit-item">${b}</li>`).join("");
+
+        card.innerHTML = `
+          <div class="strategy-header">
+            <div class="strategy-title-wrap">
+              <span class="rank-tag ${tagClass}">${tagText}</span>
+              <h3 class="strategy-title" id="strat-title-${strat.id}">${strat.name}</h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">${strat.desc}</p>
+            </div>
+            <div class="score-badge" aria-label="Score: ${strat.finalScore} out of 5">
+              <div class="score-num">${strat.finalScore}</div>
+              <div class="score-label">MCDA Score / 5.0</div>
+            </div>
+          </div>
+
+          <div class="evidence-list" aria-label="NASA satellite evidence sources">
+            <span class="evidence-badge">🛰️ MODIS NDVI 250m</span>
+            <span class="evidence-badge">🌡️ NASA POWER</span>
+            <span class="evidence-badge">💧 SMAP / MERRA-2</span>
+            <span class="evidence-badge">📚 K-State Extension</span>
+          </div>
+
+          <ul style="list-style: none; margin: 10px 0;">
+            ${benefitsHtml}
+          </ul>
+
+          <div class="risk-box" role="note">
+            <strong>⚠️ Risk Needing Local Review:</strong> ${strat.risks}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function renderComparisonTable(county, scored) {
+      const tbody = document.getElementById("comparison-tbody");
+      tbody.innerHTML = "";
+
+      const baseline = county.strategies.find(s => s.isExisting);
+      const topAlt = scored.find(s => !s.isExisting) || scored[0];
+
+      document.getElementById("col-baseline-name").textContent = baseline.name;
+      document.getElementById("col-alt-name").textContent = topAlt.name;
+
+      county.comparisonMetrics.forEach(m => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <th scope="row" style="font-weight: 700;">${m.name}</th>
+          <td style="color: var(--text-muted);">${m.base}</td>
+          <td style="font-weight: 600; color: var(--text-main);">${m.alt}</td>
+          <td><span class="metric-delta ${m.good ? 'delta-good' : 'delta-neutral'}">${m.delta}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderNdviChart(county, threshold) {
+      const svg = document.getElementById("ndvi-svg");
+      const w = 700;
+      const h = 280;
+      const padL = 45;
+      const padR = 25;
+      const padT = 30;
+      const padB = 40;
+      const plotW = w - padL - padR;
+      const plotH = h - padT - padB;
+
+      const clim = county.ndviClim;
+      const n = clim.length;
+      const maxVal = 0.85;
+
+      const getX = (i) => padL + (i / (n - 1)) * plotW;
+      const getY = (val) => padT + plotH - (val / maxVal) * plotH;
+
+      // Threshold line Y
+      const threshY = getY(threshold);
+
+      // Build SVG elements
+      let svgHtml = `
+        <!-- Background Grid -->
+        <line x1="${padL}" y1="${getY(0.2)}" x2="${w - padR}" y2="${getY(0.2)}" class="chart-grid" />
+        <line x1="${padL}" y1="${getY(0.4)}" x2="${w - padR}" y2="${getY(0.4)}" class="chart-grid" />
+        <line x1="${padL}" y1="${getY(0.6)}" x2="${w - padR}" y2="${getY(0.6)}" class="chart-grid" />
+        <line x1="${padL}" y1="${getY(0.8)}" x2="${w - padR}" y2="${getY(0.8)}" class="chart-grid" />
+
+        <!-- Bare Soil Threshold Red Band -->
+        <rect x="${padL}" y="${threshY}" width="${plotW}" height="${plotH - (threshY - padT)}" class="bare-rect" />
+        <line x1="${padL}" y1="${threshY}" x2="${w - padR}" y2="${threshY}" class="bare-threshold-line" />
+        <text x="${w - padR - 5}" y="${threshY - 6}" text-anchor="end" fill="var(--accent-alert)" font-weight="700" font-size="11">Bare Threshold (${threshold.toFixed(2)})</text>
+      `;
+
+      // Build Line Path
+      let pathD = "";
+      clim.forEach((item, i) => {
+        const x = getX(i);
+        const y = getY(item.val);
+        pathD += (i === 0 ? "M" : "L") + `${x.toFixed(1)},${y.toFixed(1)} `;
+      });
+
+      // Shaded area under curve
+      const areaD = pathD + `L${getX(n-1)},${padT + plotH} L${getX(0)},${padT + plotH} Z`;
+
+      svgHtml += `
+        <path d="${areaD}" class="ndvi-fill" />
+        <path d="${pathD}" class="ndvi-line" />
+      `;
+
+      // Draw points and X-axis labels
+      clim.forEach((item, i) => {
+        const x = getX(i);
+        const y = getY(item.val);
+        const isBare = item.val < threshold;
+
+        svgHtml += `
+          <circle cx="${x}" cy="${y}" r="4.5" fill="${isBare ? 'var(--accent-alert)' : 'var(--primary)'}" stroke="#ffffff" stroke-width="2">
+            <title>${item.m}: NDVI ${item.val.toFixed(3)} (${isBare ? 'Bare Ground' : 'Vegetated'})</title>
+          </circle>
+          <text x="${x}" y="${h - 15}" text-anchor="middle" class="chart-text">${item.m}</text>
+        `;
+      });
+
+      // Y-axis labels
+      svgHtml += `
+        <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + plotH}" class="chart-axis" />
+        <line x1="${padL}" y1="${padT + plotH}" x2="${w - padR}" y2="${padT + plotH}" class="chart-axis" />
+        <text x="${padL - 8}" y="${getY(0.2) + 4}" text-anchor="end" class="chart-text">0.2</text>
+        <text x="${padL - 8}" y="${getY(0.4) + 4}" text-anchor="end" class="chart-text">0.4</text>
+        <text x="${padL - 8}" y="${getY(0.6) + 4}" text-anchor="end" class="chart-text">0.6</text>
+        <text x="${padL - 8}" y="${getY(0.8) + 4}" text-anchor="end" class="chart-text">0.8</text>
+      `;
+
+      svg.innerHTML = svgHtml;
+
+      // Update tabular data fallback
+      const tableTbody = document.getElementById("ndvi-table-tbody");
+      tableTbody.innerHTML = "";
+      clim.forEach(item => {
+        const isBare = item.val < threshold;
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><strong>${item.m}</strong></td>
+          <td>${item.val.toFixed(3)}</td>
+          <td>${item.min.toFixed(3)}</td>
+          <td>${item.max.toFixed(3)}</td>
+          <td><span class="metric-delta ${isBare ? 'delta-neutral' : 'delta-good'}">${isBare ? '⚠️ Bare Topsoil' : '✓ Vegetated Cover'}</span></td>
+        `;
+        tableTbody.appendChild(row);
+      });
+    }
+
+    function renderSpatialGrid(county) {
+      const grid = document.getElementById("cells-grid");
+      grid.innerHTML = "";
+
+      county.cells.forEach(cell => {
+        const isSelected = (cell.id === selectedCellId);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "grid-cell";
+        btn.setAttribute("aria-pressed", isSelected ? "true" : "false");
+        btn.onclick = () => selectCell(cell.id);
+
+        let vulnClass = "wind";
+        if (cell.vuln.toLowerCase().includes("heat")) vulnClass = "heat";
+        if (cell.vuln.toLowerCase().includes("aquifer") || cell.vuln.toLowerCase().includes("drawdown")) vulnClass = "water";
+
+        btn.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="cell-id">${cell.id}</span>
+            <span class="cell-vuln ${vulnClass}">${cell.ndvi} NDVI</span>
+          </div>
+          <div class="cell-name">${cell.label}</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">Rec: <strong>${cell.rec}</strong></div>
+        `;
+
+        grid.appendChild(btn);
+      });
+
+      // Update Dossier View
+      const activeCell = county.cells.find(c => c.id === selectedCellId) || county.cells[0];
+      if (activeCell) {
+        document.getElementById("dossier-title").textContent = activeCell.label + " (" + activeCell.id + ")";
+        document.getElementById("dossier-coords").textContent = `Anchor Coordinates: ${activeCell.lat}° N, ${activeCell.lon}° W | Peak NDVI: ${activeCell.ndvi} | Heat Days: ${activeCell.heat} d/yr`;
+        document.getElementById("dossier-summary").textContent = activeCell.summary;
+        document.getElementById("dossier-advice").textContent = `Recommended Strategy: ${activeCell.rec}. Actionable Advice: ${activeCell.advice}`;
+      }
+    }
+
+    function selectCell(cellId) {
+      selectedCellId = cellId;
+      const county = COUNTIES[currentCounty];
+      renderSpatialGrid(county);
+    }
+
+    function onCountyChange() {
+      currentCounty = document.getElementById("county-select").value;
+      const county = COUNTIES[currentCounty];
+      document.getElementById("county-desc").textContent = county.desc;
+      selectedCellId = county.cells[4].id; // Center anchor hub
+      updateApp();
+    }
+
+    function onSliderChange() {
+      updateApp();
+    }
+
+    function onNdviThresholdChange() {
+      updateApp();
+    }
+
+    function applyPreset(water, soil, income) {
+      document.getElementById("slider-water").value = water;
+      document.getElementById("slider-soil").value = soil;
+      document.getElementById("slider-income").value = income;
+      updateApp();
+    }
+
+    function resetClimate() {
+      document.getElementById("slider-temp").value = 0;
+      document.getElementById("slider-rain").value = 0;
+      updateApp();
+    }
+
+    function switchTab(tabKey) {
+      document.querySelectorAll(".tab-btn").forEach(b => {
+        b.setAttribute("aria-selected", "false");
+      });
+      document.querySelectorAll(".tab-panel").forEach(p => {
+        p.classList.remove("active");
+      });
+
+      const btn = document.getElementById("tab-" + tabKey);
+      const panel = document.getElementById("panel-" + tabKey);
+      if (btn && panel) {
+        btn.setAttribute("aria-selected", "true");
+        panel.classList.add("active");
+      }
+    }
+
+    /* --- 4. ACCESSIBILITY ENHANCEMENTS (THEMES, SIZES, AUDIO, TRANSLATION) --- */
+    function setTheme(themeName) {
+      currentTheme = themeName;
+      document.body.className = "";
+      if (themeName !== "default") {
+        document.body.classList.add("theme-" + themeName);
+      }
+      if (currentFontSizeIdx > 0) {
+        document.body.classList.add(fontSizes[currentFontSizeIdx]);
+      }
+      document.getElementById("sr-announcer").textContent = `Theme changed to ${themeName}.`;
+    }
+
+    function toggleFontSize() {
+      currentFontSizeIdx = (currentFontSizeIdx + 1) % fontSizes.length;
+      document.body.classList.remove("font-lg", "font-xl");
+      if (fontSizes[currentFontSizeIdx]) {
+        document.body.classList.add(fontSizes[currentFontSizeIdx]);
+      }
+      document.getElementById("font-size-label").textContent = fontLabels[currentFontSizeIdx];
+      document.getElementById("sr-announcer").textContent = `Font size set to ${fontLabels[currentFontSizeIdx]}.`;
+    }
+
+    function toggleLanguage() {
+      currentLang = (currentLang === "en" ? "es" : "en");
+      document.getElementById("lang-label").textContent = (currentLang === "en" ? "English (Switch to Español)" : "Español (Cambiar a English)");
+      
+      if (currentLang === "es") {
+        document.getElementById("txt-header-sub").textContent = "Toma de Decisiones Agronómicas Empíricas con 10 Años de Observaciones de la NASA";
+        document.getElementById("leg-priorities").textContent = "Prioridades del Productor (0–10)";
+        document.getElementById("lbl-water").textContent = "💧 Ahorrar Agua:";
+        document.getElementById("lbl-soil").textContent = "🛡️ Proteger Suelo (Viento y Cobertura):";
+        document.getElementById("lbl-income").textContent = "💵 Ingresos y Margen Neto:";
+        document.getElementById("leg-climate").textContent = "Pruebas de Estrés Climático '¿Qué Pasa Si?'";
+        document.getElementById("lbl-temp").textContent = "🌡️ Cambio de Temperatura (Δ°C):";
+        document.getElementById("lbl-rain").textContent = "🌧️ Cambio de Lluvia (Δ%):";
+        document.getElementById("btn-read-aloud").textContent = "🔊 Escuchar Resumen";
+      } else {
+        document.getElementById("txt-header-sub").textContent = "Empirical Decision-Support Powered by 10 Years of NASA Earth Observations";
+        document.getElementById("leg-priorities").textContent = "Farmer Strategic Priorities (0–10)";
+        document.getElementById("lbl-water").textContent = "💧 Save Water:";
+        document.getElementById("lbl-soil").textContent = "🛡️ Protect Soil (Wind & Cover):";
+        document.getElementById("lbl-income").textContent = "💵 Earn Income & Net Margins:";
+        document.getElementById("leg-climate").textContent = '"What-If" Climate Stress-Testing';
+        document.getElementById("lbl-temp").textContent = "🌡️ Temperature Shift (Δ°C):";
+        document.getElementById("lbl-rain").textContent = "🌧️ Rainfall Shift (Δ%):";
+        document.getElementById("btn-read-aloud").textContent = "🔊 Listen to Summary";
+      }
+      updateApp();
+    }
+
+    function readAloudSummary() {
+      if (!('speechSynthesis' in window)) {
+        alert("Text-to-speech audio is not supported in this browser.");
+        return;
+      }
+      window.speechSynthesis.cancel(); // Stop any ongoing speech
+
+      const vals = getFormValues();
+      const res = calculateMCDA(currentCounty, vals.pWater, vals.pSoil, vals.pIncome, vals.dTemp, vals.dRain, vals.bareThresh);
+      const topStrat = res.scored[0];
+      const county = COUNTIES[currentCounty];
+
+      let textToRead = "";
+      if (currentLang === "en") {
+        textToRead = `Field Shift agronomic advisory for ${county.name}. Based on 10 years of NASA satellite observations, ${county.name} experiences ${res.bareMonthsCount} months of bare ground exposure. Our top recommended crop rotation strategy is ${topStrat.name}, with an empirical score of ${topStrat.finalScore} out of 5. ${county.summaryText}`;
+      } else {
+        textToRead = `Asesoría agronómica de Field Shift para el condado de ${county.name}. Basado en observaciones satelitales de la NASA, la mejor rotación recomendada es ${topStrat.name}, con una puntuación de ${topStrat.finalScore} sobre 5.`;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(textToRead);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Initialize application on load
+    window.addEventListener("DOMContentLoaded", () => {
+      updateApp();
+    });
+  </script>
+</body>
+</html>
