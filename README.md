@@ -11,7 +11,7 @@
 ### Option A: Universally Accessible Interactive Web Demo (Zero Installation)
 Experience the full decision-support engine, climate stress-testing, 10-year NDVI bare-field curves, and Gemini AI dossiers **instantly in any web browser** (desktop, laptop, tablet, or phone) without installing Python, Streamlit, or external dependencies:
 
-- **Live GitHub Pages Demo**: [https://aditya891752.github.io/Field-Shift/](https://aditya891752.github.io/Field-Shift/)
+- **Live GitHub Pages Demo**: [https://aditya891752.github.io/CampoWechsel/](https://aditya891752.github.io/CampoWechsel/)
 - **Direct Local Demo**: Double-click [`demo.html`](demo.html) in your browser.
 - **7-Slide Pitch Presentation Deck**: Open [`campowechsel_presentation.html`](campowechsel_presentation.html) or [`docs/slides.html`](docs/slides.html).
 - **Accessibility Highlights**:
